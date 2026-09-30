@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brochure Ngành CNTT - Đại Học Lạc Hồng (LHU)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            lhu: {
+              blue: '#013d88',       // Xanh Hoàng Gia LHU
+              blueDark: '#002559',   // Xanh chiều sâu
+              blueLight: '#f0f5fc',  // Nền sáng tri thức
+              blueSoft: '#e1ecfb',   // Xanh đệm tinh khiết
+              gold: '#e0b341',       // Vàng kim Lạc Hồng
+              goldDark: '#b88d1d',   // Vàng kim đậm
+              goldLight: '#fdf9ee',  // Nền vàng nhạt sáng sủa
+              burgundy: '#8d1d41',   // Đỏ mận điểm nhấn tinh gọn
+              burgundySoft: '#fbf0f4',// Hồng mận vi mô
+              white: '#FFFFFF'       // Trắng tinh khiết
+            }
+          },
+          fontFamily: {
+            sans: ['"Roboto"', 'sans-serif'],
+            mono: ['"Roboto Mono"', 'monospace']
+          },
+          boxShadow: {
+            'lhu-card': '0 4px 20px -2px rgba(1, 61, 136, 0.08), 0 2px 6px -1px rgba(0,0,0,0.04)',
+            'lhu-soft': '0 10px 25px -4px rgba(1, 61, 136, 0.12)',
+            'lhu-glow': '0 0 28px rgba(1, 61, 136, 0.28)',
+            'lhu-gold': '0 6px 18px -2px rgba(224, 179, 65, 0.35)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Kích thước A4 ngang chuẩn cho Brochure gấp 3: 297mm x 210mm */
+    .a4-landscape {
+      width: 297mm;
+      height: 210mm;
+      min-width: 297mm;
+      min-height: 210mm;
+    }
+
+    /* Mạng lưới hạt công nghệ sáng sủa */
+    .lhu-pattern-dots {
+      background-image: radial-gradient(rgba(1, 61, 136, 0.12) 1.2px, transparent 1.2px);
+      background-size: 10px 10px;
+    }
+    .lhu-pattern-gold {
+      background-image: radial-gradient(rgba(224, 179, 65, 0.25) 1.2px, transparent 1.2px);
+      background-size: 10px 10px;
+    }
+
+    .organic-layer-base {
+      position: relative;
+      isolation: isolate;
+    }
+
+    /* Định dạng cắt góc lục giác tổ ong */
+    .hex-clip {
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    }
+
+    @media print {
+      body {
+        background: transparent !important;
+        padding: 0 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .a4-landscape {
+        box-shadow: none !important;
+        margin: 0 !important;
+        page-break-after: always;
+      }
+      @page {
+        size: A4 landscape;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-800 font-sans p-6 min-h-screen flex flex-col items-center">
+
+  <header class="no-print w-full max-w-[297mm] mb-6 flex flex-wrap items-center justify-between bg-slate-800/90 backdrop-blur-md border border-slate-700 p-4 rounded-xl shadow-xl">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-lhu-blue to-lhu-gold flex items-center justify-center text-white font-black text-lg shadow-md border border-lhu-gold/40">
+        LHU
+      </div>
+      <div>
+        <h1 class="text-white font-bold text-base flex items-center gap-2">
+          Brochure Trifold CNTT Lạc Hồng • Phong Cách Sáng Sủa & Bắt Mắt
+          <span class="text-[10px] bg-gradient-to-r from-lhu-gold to-amber-400 text-slate-950 px-2 py-0.5 rounded-full uppercase font-mono font-bold">LHU Brand • Light & Bright Mode</span>
+        </h1>
+        <p class="text-xs text-slate-300">Tone màu tối ưu: Trắng tinh khiết &bull; Xanh Hoàng Gia (#013d88) &bull; Vàng Kim rực rỡ (#e0b341) &bull; Đỏ mận (#8d1d41) điểm xuyết thanh lịch</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-3">
+      <button onclick="window.print()" class="px-5 py-2.5 bg-gradient-to-r from-lhu-blue via-blue-700 to-lhu-gold hover:opacity-95 text-white rounded-lg text-sm font-semibold shadow-lg hover:shadow-blue-500/25 transition flex items-center gap-2 border border-lhu-gold/40">
+        <i class="fa-solid fa-file-pdf"></i> In / Xuất PDF (Mở trên Canva)
+      </button>
+    </div>
+  </header>
+
+  <div class="space-y-12 flex flex-col items-center">
+    
+    <!-- ========================================================= -->
+    <!-- MẶT 1: MẶT NGOÀI (Cột 1: Nghề nghiệp, Cột 2: Bìa Sau, Cột 3: Bìa Trước) -->
+    <!-- ========================================================= -->
+    <div>
+      <div class="no-print flex items-center justify-between mb-2 px-2 text-slate-400 text-xs font-semibold">
+        <span>MẶT NGOÀI (OUTSIDE - Khổ A4 ngang gấp 3 &bull; Tông sáng sang trọng)</span>
+        <span>297mm × 210mm</span>
+      </div>
+
+      <div class="a4-landscape bg-white shadow-2xl relative grid grid-cols-3 overflow-hidden border border-slate-300">
+        
+        <!-- CỘT 1 (Trang 5): CƠ HỘI NGHỀ NGHIỆP & ĐỐI TÁC (TÔNG TRẮNG & XANH SÁNG) -->
+        <section class="h-full p-3.5 flex flex-col justify-between border-r border-slate-200 bg-gradient-to-b from-white via-lhu-blueLight/60 to-white relative overflow-hidden">
+          <div class="flex-1 flex flex-col justify-between">
+            
+            <!-- 1. Header Trang Sự Nghiệp -->
+            <div>
+              <div class="flex items-center justify-between mb-0.5">
+                <div class="flex items-center gap-1.5 text-lhu-blue font-bold text-[9.5px] uppercase tracking-wider">
+                  <span class="w-2.5 h-1.5 rounded-full bg-lhu-gold"></span>
+                  Cơ hội nghề nghiệp & Định hướng
+                </div>
+                <span class="bg-blue-50 text-lhu-blue text-[7px] font-black px-2 py-0.5 rounded-full border border-blue-200 shadow-2xs">
+                  <i class="fa-solid fa-certificate mr-1 text-lhu-gold"></i> ABET ACCREDITED (USA)
+                </span>
+              </div>
+              <h2 class="text-xs font-black text-lhu-blue tracking-tight">
+                BỨT PHÁ SỰ NGHIỆP SỐ TOÀN CẦU
+              </h2>
+            </div>
+
+            <!-- 2. Khung ảnh đa tầng: Môi trường làm việc doanh nghiệp (Fill chiều cao, sáng rõ nét) -->
+            <div class="organic-layer-base flex-1 h-full min-h-[85px] flex items-stretch justify-center my-1 relative">
+              <div class="absolute -inset-1 bg-gradient-to-br from-blue-100 via-lhu-goldLight to-blue-50 rounded-xl transform -rotate-1 -z-20 border border-blue-100"></div>
+              <div class="w-full h-full rounded-xl shadow-lhu-card relative overflow-hidden group border border-blue-200/80">
+                <img 
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=700&q=80" 
+                  alt="Sinh viên IT làm việc nhóm doanh nghiệp" 
+                  class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  onerror="this.src='https://placehold.co/700x350/013d88/ffffff?text=Doanh+Nghiep+IT'"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-lhu-blueDark/80 via-transparent to-transparent flex flex-col justify-end p-2 z-10">
+                  <div class="text-[8px] font-black text-white flex items-center gap-1">
+                    <i class="fa-solid fa-briefcase text-lhu-gold text-[7.5px]"></i>
+                    Môi trường làm việc chuẩn Agile / Global Tech
+                  </div>
+                  <div class="text-[6.5px] text-blue-100">Bằng cấp chuẩn ABET &bull; Thực tập hưởng lương từ năm 3</div>
+                </div>
+              </div>
+
+              <!-- Badges nổi phá khung phong cách LHU -->
+              <div class="absolute -bottom-1.5 -left-1 bg-white px-2 py-0.5 rounded-md border border-lhu-gold shadow-sm flex items-center gap-1 z-20">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span class="text-[6.5px] font-black text-lhu-blue">100% Việc làm chuẩn đầu ra</span>
+              </div>
+              <div class="absolute -top-1.5 -right-1 bg-lhu-blue text-white px-2 py-0.5 rounded-md text-[6.5px] font-bold z-20 border border-lhu-gold shadow-sm">
+                <i class="fa-solid fa-globe text-lhu-gold mr-0.5"></i> Global Mobility
+              </div>
+            </div>
+
+            <!-- 3. SECTION NỘI DUNG: HỆ TRỤ CỘT ĐÀO TẠO BỔ TRỢ (CHUYỂN SANG NỀN SÁNG CAO CẤP) -->
+            <div class="p-2 bg-white rounded-xl border border-blue-200/90 shadow-lhu-card relative overflow-hidden my-1">
+              <div class="flex items-center justify-between mb-1">
+                <div class="flex items-center gap-1 text-lhu-blue font-black text-[8px] uppercase tracking-wider">
+                  <i class="fa-solid fa-diagram-project text-lhu-gold text-[8.5px]"></i>
+                  <span>HỆ TRỤ CỘT BỔ TRỢ &bull; KỸ SƯ SỐ TOÀN NĂNG</span>
+                </div>
+                <span class="bg-lhu-goldLight text-lhu-blue text-[6px] font-mono font-bold px-1.5 py-0.2 rounded border border-lhu-gold/60">
+                  FULL-STACK KSA
+                </span>
+              </div>
+
+              <!-- Lưới 4 Trụ Cột Bổ Trợ Nền Sáng Dịu Mắt -->
+              <div class="space-y-1.5 my-1">
+                <div class="grid grid-cols-2 gap-1.5">
+                  <!-- Trụ Cột 1: Phần mềm -->
+                  <div class="bg-blue-50/70 p-1.5 rounded-lg border border-blue-200 flex flex-col justify-between shadow-2xs">
+                    <div>
+                      <div class="text-lhu-blue font-bold text-[7.5px] whitespace-nowrap overflow-hidden text-ellipsis flex items-center gap-1">
+                        <i class="fa-solid fa-code text-[7px] text-lhu-gold flex-shrink-0"></i>
+                        <span>Công nghệ Phần mềm</span>
+                      </div>
+                      <div class="mt-0.5 mb-0.5">
+                        <span class="text-[5.5px] bg-white text-lhu-blue px-1 py-0.2 rounded font-mono inline-block border border-blue-200 font-bold">Frontend / App</span>
+                      </div>
+                      <div class="text-[6.5px] text-slate-600 leading-snug">Web Apps, Mobile (React, Flutter), kiến trúc micro-frontends.</div>
+                    </div>
+                    <div class="text-[5.5px] text-lhu-blue font-mono mt-0.5 pt-0.5 border-t border-blue-200/70 flex items-center gap-1 font-bold">
+                      <i class="fa-solid fa-arrow-right text-[5px] text-lhu-gold"></i> Hiển thị & tương tác
+                    </div>
+                  </div>
+
+                  <!-- Trụ Cột 2: IoT & Nhúng -->
+                  <div class="bg-lhu-goldLight p-1.5 rounded-lg border border-lhu-gold/60 flex flex-col justify-between shadow-2xs">
+                    <div>
+                      <div class="text-slate-900 font-bold text-[7.5px] whitespace-nowrap overflow-hidden text-ellipsis flex items-center gap-1">
+                        <i class="fa-solid fa-microchip text-[7px] text-lhu-gold flex-shrink-0"></i>
+                        <span>Hệ thống Nhúng & IoT</span>
+                      </div>
+                      <div class="mt-0.5 mb-0.5">
+                        <span class="text-[5.5px] bg-white text-amber-800 px-1 py-0.2 rounded font-mono inline-block border border-lhu-gold/60 font-bold">Hardware / Edge</span>
+                      </div>
+                      <div class="text-[6.5px] text-slate-600 leading-snug">Vi điều khiển, cảm biến, thu thập dữ liệu thời gian thực.</div>
+                    </div>
+                    <div class="text-[5.5px] text-amber-800 font-mono mt-0.5 pt-0.5 border-t border-lhu-gold/40 flex items-center gap-1 font-bold">
+                      <i class="fa-solid fa-arrow-right text-[5px] text-lhu-gold"></i> Tín hiệu thời gian thực
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Dải kết nối liên hoàn trung tâm (Nền Xanh LHU viền Vàng Kim sáng rõ) -->
+                <div class="py-0.8 px-2 bg-gradient-to-r from-lhu-blue to-blue-700 rounded-lg flex items-center justify-between whitespace-nowrap shadow-xs overflow-hidden border border-lhu-gold/50">
+                  <div class="flex items-center gap-1 text-white font-black text-[6.5px] uppercase tracking-tight flex-shrink-0">
+                    <i class="fa-solid fa-circle-nodes text-[7px] text-lhu-gold"></i>
+                    <span>KẾT NỐI VÒNG LẶP SỐ:</span>
+                  </div>
+                  <span class="text-[6px] font-black text-amber-200 tracking-tight whitespace-nowrap mx-1">IoT thu thập &rarr; Mạng bảo vệ &rarr; Phần mềm hiển thị &rarr; AI tối ưu</span>
+                  <i class="fa-solid fa-bolt text-lhu-gold text-[7px] flex-shrink-0"></i>
+                </div>
+
+                <div class="grid grid-cols-2 gap-1.5">
+                  <!-- Trụ Cột 3: Mạng & Bảo mật -->
+                  <div class="bg-blue-50/70 p-1.5 rounded-lg border border-blue-200 flex flex-col justify-between shadow-2xs">
+                    <div>
+                      <div class="text-lhu-blue font-bold text-[7.5px] whitespace-nowrap overflow-hidden text-ellipsis flex items-center gap-1">
+                        <i class="fa-solid fa-shield-halved text-[7px] text-lhu-gold flex-shrink-0"></i>
+                        <span>Mạng & An ninh mạng</span>
+                      </div>
+                      <div class="mt-0.5 mb-0.5">
+                        <span class="text-[5.5px] bg-white text-lhu-blue px-1 py-0.2 rounded font-mono inline-block border border-blue-200 font-bold">Cloud / Network</span>
+                      </div>
+                      <div class="text-[6.5px] text-slate-600 leading-snug">Hạ tầng Cloud (AWS/Azure), bảo vệ toàn vẹn dữ liệu.</div>
+                    </div>
+                    <div class="text-[5.5px] text-lhu-blue font-mono mt-0.5 pt-0.5 border-t border-blue-200/70 flex items-center gap-1 font-bold">
+                      <i class="fa-solid fa-arrow-right text-[5px] text-lhu-gold"></i> Xa lộ truyền an toàn
+                    </div>
+                  </div>
+
+                  <!-- Trụ Cột 4: Phân tích & AI -->
+                  <div class="bg-lhu-goldLight p-1.5 rounded-lg border border-lhu-gold/60 flex flex-col justify-between shadow-2xs">
+                    <div>
+                      <div class="text-slate-900 font-bold text-[7.5px] whitespace-nowrap overflow-hidden text-ellipsis flex items-center gap-1">
+                        <i class="fa-solid fa-chart-line text-[7px] text-lhu-gold flex-shrink-0"></i>
+                        <span>Phân tích Dữ liệu & AI</span>
+                      </div>
+                      <div class="mt-0.5 mb-0.5">
+                        <span class="text-[5.5px] bg-white text-slate-800 px-1 py-0.2 rounded font-mono inline-block border border-lhu-gold/60 font-bold">Data / Intelligence</span>
+                      </div>
+                      <div class="text-[6.5px] text-slate-600 leading-snug">Khai phá tri thức, mô hình học máy LLMs, phân tích tự động.</div>
+                    </div>
+                    <div class="text-[5.5px] text-amber-800 font-mono mt-0.5 pt-0.5 border-t border-lhu-gold/40 flex items-center gap-1 font-bold">
+                      <i class="fa-solid fa-arrow-right text-[5px] text-lhu-gold"></i> Tối ưu hóa hệ thống
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Footer cam kết kỹ sư toàn diện -->
+              <div class="mt-1 pt-1 border-t border-slate-200 flex items-center justify-between text-[6.5px] text-slate-600">
+                <span><i class="fa-solid fa-check-double text-lhu-blue mr-1"></i> Chuẩn kỹ sư ABET không học đơn lẻ</span>
+                <span class="font-bold text-lhu-blue tracking-wider">ĐÁP ỨNG DOANH NGHIỆP 4.0</span>
+              </div>
+            </div>
+
+            <!-- 4. VỊ TRÍ VIỆC LÀM SAU KHI TỐT NGHIỆP -->
+            <div class="p-1.5 bg-white rounded-xl border border-slate-200 shadow-2xs my-1">
+              <div class="flex items-center justify-between mb-1">
+                <div class="flex items-center gap-1.5 text-[8px] font-black text-lhu-blue uppercase tracking-wider">
+                  <i class="fa-solid fa-user-tie text-lhu-gold"></i> Vị trí việc làm sau tốt nghiệp
+                </div>
+                <span class="text-[6px] text-lhu-blue font-extrabold bg-blue-50 px-1.5 py-0.2 rounded border border-blue-200">
+                  Thu nhập khởi điểm hấp dẫn
+                </span>
+              </div>
+
+              <!-- Danh mục 5 vị trí nghề nghiệp thực tế -->
+              <div class="space-y-0.5 text-[6.5px]">
+                <div class="flex items-center gap-1.5 py-0.5 border-b border-slate-100 last:border-0">
+                  <i class="fa-solid fa-laptop-code text-lhu-blue text-[7px] w-3 flex-shrink-0"></i>
+                  <div class="truncate">
+                    <span class="font-bold text-slate-900">Kỹ sư phát triển phần mềm</span>
+                    <span class="text-slate-500">(Web, Mobile App, Full-stack)</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-1.5 py-0.5 border-b border-slate-100 last:border-0">
+                  <i class="fa-solid fa-network-wired text-lhu-blue text-[7px] w-3 flex-shrink-0"></i>
+                  <div class="truncate">
+                    <span class="font-bold text-slate-900">Kỹ sư Mạng, Cloud & An toàn thông tin</span>
+                    <span class="text-slate-500">(DevOps, CyberSec)</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-1.5 py-0.5 border-b border-slate-100 last:border-0">
+                  <i class="fa-solid fa-database text-lhu-goldDark text-[7px] w-3 flex-shrink-0"></i>
+                  <div class="truncate">
+                    <span class="font-bold text-slate-900">Chuyên viên Phân tích Dữ liệu & Kỹ sư AI</span>
+                    <span class="text-slate-500">(Data Analyst, AI Solution)</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-1.5 py-0.5 border-b border-slate-100 last:border-0">
+                  <i class="fa-solid fa-list-check text-lhu-blue text-[7px] w-3 flex-shrink-0"></i>
+                  <div class="truncate">
+                    <span class="font-bold text-slate-900">Quản lý dự án CNTT & Chuyên viên giải pháp</span>
+                    <span class="text-slate-500">(IT PM, Scrum Master)</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-1.5 py-0.5">
+                  <i class="fa-solid fa-gears text-lhu-blue text-[7px] w-3 flex-shrink-0"></i>
+                  <div class="truncate">
+                    <span class="font-bold text-slate-900">Kỹ sư triển khai hệ thống thông minh & IoT</span>
+                    <span class="text-slate-500">(ERP, Smart Factory)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5. ĐỐI TÁC DOANH NGHIỆP & HỆ THỐNG 6 LOGO BRANDS -->
+            <div class="mt-auto pt-1.5 border-t border-slate-200 bg-white rounded-xl p-1.5 shadow-2xs">
+              <div class="flex items-center justify-between mb-1">
+                <div class="flex items-center gap-1">
+                  <i class="fa-solid fa-handshake-angle text-lhu-blue text-[8px]"></i>
+                  <span class="text-[7.5px] uppercase font-black text-lhu-blue tracking-wider">500+ Doanh nghiệp đối tác tuyển dụng</span>
+                </div>
+                <span class="text-[6px] text-lhu-blue font-extrabold bg-blue-50 px-1 py-0.2 rounded border border-blue-200">
+                  <i class="fa-solid fa-circle-check text-emerald-500 text-[6px]"></i> Cam kết việc làm
+                </span>
+              </div>
+
+              <!-- Lưới 6 Logo Doanh nghiệp độc lập sáng đẹp -->
+              <div class="grid grid-cols-3 gap-1">
+                <!-- Logo 1: FPT Software -->
+                <div class="p-1 bg-slate-50 hover:bg-blue-50/50 rounded-lg border border-slate-200 shadow-2xs flex flex-col items-center justify-center transition">
+                  <div class="h-3 flex items-center justify-center gap-0.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    <span class="text-[7px] font-black text-slate-800 ml-0.5">FPT</span>
+                  </div>
+                  <span class="text-[5px] font-bold text-slate-500 mt-0.5">FPT Software</span>
+                </div>
+
+                <!-- Logo 2: Viettel Group -->
+                <div class="p-1 bg-slate-50 hover:bg-blue-50/50 rounded-lg border border-slate-200 shadow-2xs flex flex-col items-center justify-center transition">
+                  <div class="h-3 flex items-center justify-center gap-0.5">
+                    <div class="w-2.5 h-2.5 rounded-full bg-red-600 flex items-center justify-center text-white text-[5px] font-black">V</div>
+                    <span class="text-[7px] font-black text-red-600 tracking-tight lowercase">viettel</span>
+                  </div>
+                  <span class="text-[5px] font-bold text-slate-500 mt-0.5">Viettel Group</span>
+                </div>
+
+                <!-- Logo 3: TMA Solutions -->
+                <div class="p-1 bg-slate-50 hover:bg-blue-50/50 rounded-lg border border-slate-200 shadow-2xs flex flex-col items-center justify-center transition">
+                  <div class="h-3 flex items-center justify-center gap-0.5">
+                    <div class="w-2.5 h-2.5 rounded bg-indigo-600 flex items-center justify-center text-white text-[5px] font-black">T</div>
+                    <span class="text-[7px] font-black text-indigo-900">TMA</span>
+                  </div>
+                  <span class="text-[5px] font-bold text-slate-500 mt-0.5">TMA Solutions</span>
+                </div>
+
+                <!-- Logo 4: DXC Technology -->
+                <div class="p-1 bg-slate-50 hover:bg-blue-50/50 rounded-lg border border-slate-200 shadow-2xs flex flex-col items-center justify-center transition">
+                  <div class="h-3 flex items-center justify-center">
+                    <span class="text-[7.5px] font-black text-purple-700 tracking-tighter">DXC.</span>
+                  </div>
+                  <span class="text-[5px] font-bold text-slate-500 mt-0.5">DXC Technology</span>
+                </div>
+
+                <!-- Logo 5: VNPT Group -->
+                <div class="p-1 bg-slate-50 hover:bg-blue-50/50 rounded-lg border border-slate-200 shadow-2xs flex flex-col items-center justify-center transition">
+                  <div class="h-3 flex items-center justify-center gap-0.5">
+                    <i class="fa-solid fa-globe text-blue-600 text-[6.5px]"></i>
+                    <span class="text-[7px] font-black text-blue-700">VNPT</span>
+                  </div>
+                  <span class="text-[5px] font-bold text-slate-500 mt-0.5">VNPT Tech</span>
+                </div>
+
+                <!-- Logo 6: Bosch Global -->
+                <div class="p-1 bg-slate-50 hover:bg-blue-50/50 rounded-lg border border-slate-200 shadow-2xs flex flex-col items-center justify-center transition">
+                  <div class="h-3 flex items-center justify-center gap-0.5">
+                    <i class="fa-solid fa-circle-notch text-red-600 text-[6.5px]"></i>
+                    <span class="text-[7px] font-black text-slate-900 tracking-tight">BOSCH</span>
+                  </div>
+                  <span class="text-[5px] font-bold text-slate-500 mt-0.5">Bosch Global</span>
+                </div>
+              </div>
+
+              <div class="mt-1 flex items-center justify-between text-[5.5px] text-slate-500">
+                <span>Thực tập hưởng lương & Tuyển dụng trực tiếp</span>
+                <span class="text-lhu-blue font-bold">[Logo sẵn sàng thay trên Canva]</span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- CỘT 2 (Trang 6): BÌA SAU (TUYỂN SINH & LIÊN HỆ - SÁNG VÀ TINH TẾ) -->
+        <section class="h-full p-3.5 flex flex-col justify-between border-r border-slate-200 bg-white relative">
+          <div class="h-full flex flex-col justify-between">
+            <div>
+              <div class="bg-gradient-to-r from-lhu-blue via-blue-700 to-lhu-blue text-white p-2 rounded-2xl text-center shadow-md mb-1 relative overflow-hidden border border-lhu-gold/50">
+                <div class="absolute -right-4 -bottom-4 w-14 h-14 bg-lhu-gold/20 rounded-full blur-md"></div>
+                <div class="text-[8.5px] uppercase tracking-wider text-blue-100 font-semibold">Thông tin tuyển sinh chính quy</div>
+                <div class="text-sm font-black tracking-tight mt-0.5 text-lhu-gold">MÃ NGÀNH: 7480201</div>
+                <div class="text-[8.5px] text-white font-bold">Mã trường: DLH</div>
+              </div>
+
+              <!-- Tổ hợp môn xét tuyển -->
+              <div class="mb-1">
+                <h3 class="text-[8.5px] font-bold text-lhu-blue uppercase tracking-wide mb-0.5 flex items-center gap-1.5">
+                  <i class="fa-solid fa-list-check text-lhu-gold"></i>
+                  Tổ hợp môn xét tuyển
+                </h3>
+                <div class="grid grid-cols-2 gap-1 text-xs">
+                  <div class="p-1 bg-lhu-blueLight rounded-xl border border-blue-200/80 shadow-2xs flex items-center justify-between">
+                    <span class="font-extrabold text-lhu-blue text-[10px]">A00</span>
+                    <span class="text-slate-600 text-[8px]">Toán, Lý, Hóa</span>
+                  </div>
+                  <div class="p-1 bg-lhu-blueLight rounded-xl border border-blue-200/80 shadow-2xs flex items-center justify-between">
+                    <span class="font-extrabold text-lhu-blue text-[10px]">A01</span>
+                    <span class="text-slate-600 text-[8px]">Toán, Lý, Anh</span>
+                  </div>
+                  <div class="p-1 bg-lhu-goldLight rounded-xl border border-lhu-gold/50 shadow-2xs flex items-center justify-between">
+                    <span class="font-extrabold text-slate-900 text-[10px]">C01</span>
+                    <span class="text-slate-600 text-[8px]">Toán, Văn, Lý</span>
+                  </div>
+                  <div class="p-1 bg-lhu-goldLight rounded-xl border border-lhu-gold/50 shadow-2xs flex items-center justify-between">
+                    <span class="font-extrabold text-slate-900 text-[10px]">D01</span>
+                    <span class="text-slate-600 text-[8px]">Toán, Văn, Anh</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Phương thức xét tuyển -->
+              <div class="my-1">
+                <h3 class="text-[8.5px] font-bold text-lhu-blue uppercase tracking-wide mb-0.5 flex items-center gap-1">
+                  <i class="fa-solid fa-circle-check text-lhu-gold text-[9px]"></i>
+                  Phương thức xét tuyển linh hoạt
+                </h3>
+                <div class="text-[7px] text-slate-600 space-y-0.5 pl-2 border-l-2 border-lhu-gold">
+                  <p>1. Xét điểm học bạ THPT (Tổ hợp 3 môn hoặc cả năm)</p>
+                  <p>2. Xét điểm thi ĐGNL ĐHQG-HCM</p>
+                  <p>3. Xét điểm thi Tốt nghiệp THPT</p>
+                </div>
+              </div>
+
+              <!-- CÁC HỆ ĐÀO TẠO & THỜI LƯỢNG CHUẨN BỘ GD&ĐT -->
+              <div class="p-1.5 bg-lhu-blueLight/50 rounded-xl border border-blue-200 shadow-2xs mb-1">
+                <div class="flex items-center justify-between mb-1">
+                  <div class="text-[7.5px] font-black text-lhu-blue uppercase tracking-wider flex items-center gap-1">
+                    <i class="fa-solid fa-graduation-cap text-lhu-gold text-[8px]"></i>
+                    Các hệ đào tạo & thời lượng chuẩn bộ
+                  </div>
+                  <span class="bg-lhu-goldLight text-lhu-blue font-bold text-[6px] px-1 py-0.2 rounded font-mono border border-lhu-gold/60">
+                    BẰNG KỸ SƯ
+                  </span>
+                </div>
+
+                <!-- Lưới 4 Hệ Đào Tạo LHU Sáng Đẹp -->
+                <div class="grid grid-cols-2 gap-1 text-[6.5px]">
+                  <!-- Hệ 1: ĐH Chính quy -->
+                  <div class="p-1 bg-white rounded-lg border border-blue-200 flex flex-col justify-between shadow-2xs">
+                    <div>
+                      <div class="font-black text-lhu-blue flex items-center justify-between">
+                        <span>ĐH Chính quy</span>
+                        <span class="text-[5.5px] bg-lhu-blue text-lhu-gold font-mono px-1 py-0.2 rounded font-bold border border-lhu-gold/40">&ge; 150 TC</span>
+                      </div>
+                      <div class="text-slate-600 text-[6px] mt-0.5 leading-snug">4 năm (3.5 năm rút ngắn) &bull; Kỹ sư chuyên sâu</div>
+                    </div>
+                  </div>
+
+                  <!-- Hệ 2: Liên thông Chính quy -->
+                  <div class="p-1 bg-white rounded-lg border border-blue-200 flex flex-col justify-between shadow-2xs">
+                    <div>
+                      <div class="font-black text-lhu-blue flex items-center justify-between">
+                        <span>Liên thông CQ</span>
+                        <span class="text-[5.5px] bg-lhu-blue text-white font-mono px-1 py-0.2 rounded font-bold">1.5 - 2 Năm</span>
+                      </div>
+                      <div class="text-slate-600 text-[6px] mt-0.5 leading-snug">Từ CĐ lên ĐH &bull; Miễn giảm tín chỉ tương đương</div>
+                    </div>
+                  </div>
+
+                  <!-- Hệ 3: Liên thông VLVH -->
+                  <div class="p-1 bg-white rounded-lg border border-lhu-gold/60 flex flex-col justify-between shadow-2xs">
+                    <div>
+                      <div class="font-black text-slate-900 flex items-center justify-between">
+                        <span>Liên thông VLVH</span>
+                        <span class="text-[5.5px] bg-lhu-goldDark text-white font-mono px-1 py-0.2 rounded font-bold">Tối / T7-CN</span>
+                      </div>
+                      <div class="text-slate-600 text-[6px] mt-0.5 leading-snug">1.5 - 2 năm &bull; Lịch học linh hoạt người đi làm</div>
+                    </div>
+                  </div>
+
+                  <!-- Hệ 4: Văn bằng 2 -->
+                  <div class="p-1 bg-white rounded-lg border border-slate-300 flex flex-col justify-between shadow-2xs">
+                    <div>
+                      <div class="font-black text-slate-900 flex items-center justify-between">
+                        <span>Văn bằng 2</span>
+                        <span class="text-[5.5px] bg-slate-700 text-white font-mono px-1 py-0.2 rounded font-bold">2 Năm</span>
+                      </div>
+                      <div class="text-slate-600 text-[6px] mt-0.5 leading-snug">Dành cho người đã tốt nghiệp 1 bằng ĐH</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Badges đặc trưng đào tạo kỹ sư CNTT LHU -->
+                <div class="mt-1 pt-1 border-t border-blue-200/60 flex flex-wrap items-center gap-1">
+                  <span class="bg-lhu-blue text-lhu-gold text-[5.5px] font-black px-1.5 py-0.2 rounded flex items-center gap-0.5 border border-lhu-gold/40">
+                    <i class="fa-solid fa-award text-[5.5px]"></i> KỸ SƯ &ge;150 TÍN CHỈ
+                  </span>
+                  <span class="bg-white text-slate-800 text-[5.5px] font-bold px-1 py-0.2 rounded border border-slate-300">
+                    Tín chỉ linh hoạt
+                  </span>
+                  <span class="bg-blue-100 text-lhu-blue text-[5.5px] font-bold px-1 py-0.2 rounded border border-blue-300">
+                    Học vượt 3.5 năm
+                  </span>
+                  <span class="bg-lhu-goldLight text-lhu-blue text-[5.5px] font-bold px-1 py-0.2 rounded border border-lhu-gold">
+                    Thủ khoa 100% HB
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- KHUNG ẢNH ĐA TẦNG 2: Campus LHU (Fill trọn vẹn theo chiều cao) -->
+            <div class="organic-layer-base my-1 flex-1 h-full min-h-[140px] flex items-stretch justify-center relative">
+              <div class="absolute -inset-1 bg-gradient-to-br from-blue-100 via-lhu-goldLight to-blue-50 rounded-2xl transform rotate-1 -z-20 border border-blue-100"></div>
+              
+              <div class="w-full h-full rounded-2xl overflow-hidden shadow-lhu-soft relative border border-blue-200/80 group">
+                <img 
+                  src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=700&q=80" 
+                  alt="Khuôn viên trường đại học hiện đại LHU" 
+                  class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  onerror="this.src='https://placehold.co/700x500/013d88/ffffff?text=Campus+LHU'"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-lhu-blueDark/80 via-transparent to-transparent flex flex-col justify-end p-2.5 z-10">
+                  <span class="text-[9px] font-black text-white flex items-center gap-1">
+                    <i class="fa-solid fa-building-columns text-lhu-gold text-[8.5px]"></i>
+                    Không gian học tập & Nghiên cứu thông minh LHU
+                  </span>
+                  <span class="text-[7px] text-blue-100">Hệ sinh thái Smart Campus &bull; Innovation Lab & Maker Space 24/7</span>
+                </div>
+              </div>
+
+              <!-- Campus Feature Badges -->
+              <div class="absolute -top-2 -right-1 bg-lhu-gold text-slate-950 font-black text-[7.5px] px-2 py-0.5 rounded-full shadow-md z-20 border border-white">
+                CAMPUS BỬU LONG
+              </div>
+              <div class="absolute -bottom-1.5 -left-1 bg-white text-lhu-blue font-black text-[7.5px] px-2 py-0.5 rounded-lg border border-slate-200 shadow-md flex items-center gap-1 z-20">
+                <i class="fa-solid fa-wifi text-emerald-600"></i> Smart Campus 100%
+              </div>
+            </div>
+
+            <!-- Thông tin liên hệ & QR -->
+            <div class="pt-1.5 border-t border-slate-200 flex items-center gap-2 mt-auto">
+              <div class="w-11 h-11 bg-white border border-slate-300 rounded-xl p-1 flex flex-col items-center justify-center flex-shrink-0 shadow-sm">
+                <i class="fa-solid fa-qrcode text-lg text-lhu-blue"></i>
+                <span class="text-[6px] font-black text-slate-600 mt-0.5">SCAN ME</span>
+              </div>
+              <div class="text-[8px] text-slate-600 leading-tight space-y-0.5">
+                <div class="font-extrabold text-lhu-blue text-[9px]">TRƯỜNG ĐẠI HỌC LẠC HỒNG</div>
+                <div><i class="fa-solid fa-location-dot text-lhu-gold w-3"></i> Số 10 Huỳnh Văn Nghệ, P. Trấn Biên, TP. Đồng Nai</div>
+                <div><i class="fa-solid fa-phone text-lhu-blue w-3"></i> (0251) 3.952.251</div>
+                <div><i class="fa-solid fa-globe text-lhu-goldDark w-3"></i> lhu.edu.vn &bull; cs.lhu.edu.vn</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CỘT 3 (Trang 1): BÌA TRƯỚC (SANG TRỌNG • SÁNG RỰC RỠ CHUẨN LHU ROYAL BLUE & GOLD) -->
+        <section class="h-full p-3.5 flex flex-col justify-between bg-gradient-to-br from-lhu-blue via-blue-700 to-lhu-blueDark text-white relative overflow-hidden">
+          <div class="absolute -right-16 -top-16 w-56 h-56 bg-lhu-gold/25 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="absolute -left-16 -bottom-16 w-56 h-56 bg-blue-400/20 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="absolute top-1/2 right-0 w-32 h-32 lhu-pattern-gold opacity-20 pointer-events-none"></div>
+
+          <!-- Top Brand & Khung Đặt Logo Chuẩn LHU -->
+          <div class="relative z-10">
+            <div class="flex items-center justify-between gap-2 mb-1.5">
+              <div class="flex items-center gap-2 bg-white/95 backdrop-blur-md px-2 py-1.5 rounded-2xl border border-lhu-gold/50 shadow-lg w-full max-w-[205px]">
+                <div class="w-8 h-8 rounded-xl bg-lhu-blueLight border-2 border-dashed border-lhu-blue/70 flex flex-col items-center justify-center text-lhu-blue flex-shrink-0">
+                  <i class="fa-solid fa-cloud-arrow-up text-[10px] text-lhu-goldDark"></i>
+                  <span class="text-[5.5px] font-black uppercase text-lhu-blue">LOGO LHU</span>
+                </div>
+                <div class="leading-tight">
+                  <div class="text-[9.5px] font-black text-lhu-blue uppercase">ĐẠI HỌC LẠC HỒNG</div>
+                  <div class="text-[7.5px] font-bold text-slate-700 uppercase tracking-wider">KHOA CNTT</div>
+                  <span class="text-[6px] text-slate-400 block">[Chừa chỗ đặt logo]</span>
+                </div>
+              </div>
+
+              <!-- Badges Kiểm định Quốc tế ABET & AUN-QA -->
+              <div class="flex flex-col gap-1 items-end flex-shrink-0">
+                <span class="inline-block bg-gradient-to-r from-lhu-gold to-amber-400 text-slate-950 text-[8px] font-black px-2 py-0.5 rounded-lg shadow-md border border-white">
+                  <i class="fa-solid fa-shield-halved mr-0.5"></i> CHUẨN ABET (HOA KỲ)
+                </span>
+                <span class="inline-block bg-white/15 backdrop-blur-md border border-white/30 text-[7px] font-bold px-1.5 py-0.5 rounded-lg text-amber-200">
+                  <i class="fa-solid fa-award mr-0.5 text-lhu-gold"></i> AUN-QA & QUỐC TẾ
+                </span>
+              </div>
+            </div>
+
+            <!-- Title -->
+            <div class="mt-0.5">
+              <div class="flex items-center gap-1 mb-0.5">
+                <span class="inline-block px-2 py-0.5 bg-gradient-to-r from-lhu-gold to-amber-400 text-slate-950 font-black text-[8px] rounded-full uppercase tracking-wider shadow-sm">
+                  KHOA CÔNG NGHỆ THÔNG TIN
+                </span>
+                <span class="bg-white/20 backdrop-blur-sm border border-lhu-gold/40 text-white text-[7.5px] font-bold px-1.5 py-0.5 rounded-full">
+                  HỆ CHÍNH QUY
+                </span>
+              </div>
+              <h1 class="text-lg font-black text-white leading-tight tracking-tight drop-shadow-sm">
+                NGÀNH CÔNG NGHỆ<br>THÔNG TIN
+              </h1>
+              <p class="text-amber-200 text-[10px] font-medium italic mt-0.5">
+                "Chuẩn quốc tế ABET &ndash; Làm chủ công nghệ &ndash; Kiến tạo tương lai số"
+              </p>
+            </div>
+          </div>
+
+          <!-- KHUNG ẢNH ĐA TẦNG HERO 3: Hero Image + Floating Value Badges -->
+          <div class="organic-layer-base my-1 relative z-10 flex-1 min-h-[145px] flex items-center justify-center">
+            <div class="absolute -inset-2 bg-gradient-to-r from-blue-400/30 via-lhu-gold/30 to-blue-200/30 rounded-3xl blur-md -z-20"></div>
+            <div class="absolute inset-0 bg-white/10 border border-white/20 rounded-2xl transform rotate-2 -z-10"></div>
+            
+            <div class="w-full h-full rounded-2xl overflow-hidden shadow-lhu-glow relative group border border-lhu-gold/50">
+              <img 
+                src="https://images.unsplash.com/photo-1534972195531-a756b1126f24?auto=format&fit=crop&w=900&q=80" 
+                alt="Sinh viên IT lập trình viên thế hệ mới" 
+                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                onerror="this.src='https://placehold.co/900x600/013d88/ffffff?text=LHU+IT+Hero'"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-lhu-blueDark/80 via-transparent to-transparent flex flex-col justify-end p-2.5">
+                <span class="text-[9.5px] font-black text-white">Thế hệ Kỹ sư CNTT Thực chiến LHU</span>
+                <span class="text-[7.5px] text-amber-200">Làm chủ AI &bull; Tự tin làm việc tại doanh nghiệp toàn cầu</span>
+              </div>
+            </div>
+
+            <!-- Floating Badges phong cách LHU sáng sủa -->
+            <div class="absolute -bottom-2 -left-2 bg-gradient-to-r from-lhu-gold to-amber-400 text-slate-950 font-extrabold text-[8px] px-2 py-0.5 rounded-xl shadow-lhu-gold flex items-center gap-1 z-20 border border-white">
+              <i class="fa-solid fa-wand-magic-sparkles text-lhu-blue"></i>
+              <span>VIBE CODING LAB</span>
+            </div>
+
+            <div class="absolute -top-2 -right-2 bg-white text-lhu-blue font-black text-[7.5px] px-2 py-0.5 rounded-lg shadow-md border border-slate-100 flex items-center gap-1 z-20">
+              <i class="fa-solid fa-bolt text-amber-500"></i>
+              <span>HOT CAREER 2026</span>
+            </div>
+
+            <div class="absolute top-8 -left-2 bg-emerald-600 text-white font-bold text-[7px] px-1.5 py-0.5 rounded-md shadow-sm z-20 flex items-center gap-0.5 border border-white/50">
+              <i class="fa-solid fa-shield-halved text-white"></i> 100% CÓ VIỆC
+            </div>
+          </div>
+
+          <!-- Bottom Features & Value Metric Badges -->
+          <div class="relative z-10 pt-1.5 border-t border-white/20">
+            <div class="grid grid-cols-4 gap-1 text-center mb-1">
+              <div class="bg-white/15 backdrop-blur-md p-1 rounded-lg border border-lhu-gold/40 shadow-xs">
+                <div class="text-lhu-gold font-extrabold text-[10px]">100%</div>
+                <div class="text-[6.5px] text-blue-100">Có việc làm</div>
+              </div>
+              <div class="bg-white/15 backdrop-blur-md p-1 rounded-lg border border-white/20 shadow-xs">
+                <div class="text-white font-extrabold text-[10px]">50%+</div>
+                <div class="text-[6.5px] text-blue-100">Thực hành</div>
+              </div>
+              <div class="bg-white/15 backdrop-blur-md p-1 rounded-lg border border-lhu-gold/40 shadow-xs">
+                <div class="text-lhu-gold font-extrabold text-[10px]">4+</div>
+                <div class="text-[6.5px] text-blue-100">Đồ án thực tế</div>
+              </div>
+              <div class="bg-white/15 backdrop-blur-md p-1 rounded-lg border border-white/20 shadow-xs">
+                <div class="text-white font-extrabold text-[10px]">3.5 Năm</div>
+                <div class="text-[6.5px] text-blue-100">Tốt nghiệp</div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-between gap-1 text-[7.5px] text-blue-100">
+              <span class="flex items-center gap-1 text-amber-200">
+                <i class="fa-solid fa-sparkles text-lhu-gold"></i> Đạo đức - Trí tuệ - Sáng tạo
+              </span>
+              <span class="font-mono text-amber-200 font-bold bg-white/10 px-1.5 py-0.5 rounded border border-lhu-gold/40">#LHU_IT_2026</span>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+
+    <!-- ========================================================= -->
+    <!-- MẶT 2: MẶT TRONG (Cột 1: Vibe Coding & 5 Trụ Cột, Cột 2: Lộ trình 4 Năm, Cột 3: CLB Chuyên Ngành & Trải Nghiệm) -->
+    <!-- ========================================================= -->
+    <div>
+      <div class="no-print flex items-center justify-between mb-2 px-2 text-slate-400 text-xs font-semibold">
+        <span>MẶT TRONG (INSIDE - Đã nâng cấp tông màu sáng sủa, thanh lịch & sang trọng)</span>
+        <span>297mm × 210mm</span>
+      </div>
+
+      <div class="a4-landscape bg-white shadow-2xl relative grid grid-cols-3 overflow-hidden border border-slate-300">
+        
+        <!-- ========================================== -->
+        <!-- CỘT 1 (Trang 2): ĐÀO TẠO ĐỘT PHÁ KỶ NGUYÊN AI & CÔNG CỤ VIBE CODING -->
+        <!-- ========================================== -->
+        <section class="h-full p-3 flex flex-col justify-between border-r border-slate-200 bg-gradient-to-b from-white via-lhu-blueLight/40 to-white relative overflow-hidden">
+          <div class="flex-1 flex flex-col justify-between">
+            <!-- 1. Header Trang -->
+            <div>
+              <div class="flex items-center justify-between mb-0.5">
+                <div class="flex items-center gap-1 text-lhu-blue font-bold text-[9px] uppercase tracking-wider">
+                  <i class="fa-solid fa-microchip-gear text-lhu-gold"></i> Đổi mới phương pháp
+                </div>
+                <span class="bg-blue-50 text-lhu-blue text-[6px] font-black px-1.5 py-0.2 rounded-full border border-blue-200 shadow-2xs">
+                  AI-FIRST CURRICULUM
+                </span>
+              </div>
+              <h2 class="text-xs font-black text-lhu-blue tracking-tight leading-tight">
+                CHIẾN LƯỢC ĐÀO TẠO ĐỘT PHÁ KỶ NGUYÊN AI
+              </h2>
+            </div>
+
+            <!-- 2. Vibe Coding làm Công Cụ Cốt Lõi Thực Thi (Enabler Banner sáng tinh tế) -->
+            <div class="bg-gradient-to-r from-lhu-blue via-blue-700 to-lhu-blue text-white p-1.5 rounded-xl border border-lhu-gold/50 shadow-xs relative overflow-hidden my-0.5">
+              <div class="flex items-center justify-between mb-0.5">
+                <div class="flex items-center gap-1 text-lhu-gold font-black text-[7.5px] uppercase tracking-wide">
+                  <i class="fa-solid fa-wand-magic-sparkles text-lhu-gold"></i>
+                  <span>VIBE CODING: CÔNG CỤ THỰC THI TĂNG TỐC</span>
+                </div>
+                <span class="bg-white/20 text-lhu-gold text-[5px] font-mono font-bold px-1.5 py-0.2 rounded border border-lhu-gold/40">
+                  CODE X3 SPEED
+                </span>
+              </div>
+              <p class="text-[6.5px] text-blue-100 leading-snug">
+                <b>Vibe Coding</b> là công cụ chìa khóa: Sinh viên ứng dụng AI (Cursor, Copilot, LLM Agents) giải quyết khâu gõ code thô; giải phóng tư duy để tập trung vào <b>thiết kế kiến trúc hệ thống, giải quyết bài toán nghiệp vụ và ra mắt sản phẩm</b>.
+              </p>
+            </div>
+
+            <!-- 3. HỆ THỐNG 5 TRỤ CỘT ĐÀO TẠO KỶ NGUYÊN SỐ (BỐ CỤC THẺ SÁNG SỦA, CAO CẤP) -->
+            <div class="flex-1 flex flex-col justify-between p-1.5 bg-white rounded-xl border border-slate-200 shadow-lhu-card my-0.5">
+              <div class="flex items-center justify-between mb-1 border-b border-slate-100 pb-0.5">
+                <span class="text-[7.8px] font-black text-lhu-blue uppercase tracking-wider flex items-center gap-1">
+                  <i class="fa-solid fa-layer-group text-lhu-gold"></i> 5 Trụ Cột Năng Lực Cốt Lõi (AI-Era)
+                </span>
+                <div class="flex items-center gap-1">
+                  <span class="text-[5.5px] bg-lhu-goldLight text-lhu-blue font-black px-1.5 py-0.2 rounded border border-lhu-gold">
+                    <i class="fa-solid fa-bolt mr-0.5 text-lhu-gold"></i> FUTURE-PROOF
+                  </span>
+                  <span class="text-[5.5px] bg-blue-50 text-lhu-blue font-bold px-1 py-0.2 rounded font-mono border border-blue-200">
+                    CORE TECH
+                  </span>
+                </div>
+              </div>
+
+              <!-- Lưới 4 Trụ Cột trên (Card sáng, ảnh nằm dưới fill trọn vẹn không gian) -->
+              <div class="flex-1 grid grid-cols-2 gap-1.5 mb-1 min-h-[140px]">
+                
+                <!-- Trụ 1: Kỹ nghệ PM tích hợp AI -->
+                <div class="bg-blue-50/60 p-1.5 rounded-lg border border-blue-200 flex flex-col justify-between shadow-2xs relative overflow-hidden h-full">
+                  <div>
+                    <div class="flex items-center justify-between mb-0.5">
+                      <div class="font-extrabold text-lhu-blue text-[7px] flex items-center gap-1">
+                        <span class="w-3 h-3 rounded-full bg-lhu-blue text-white flex items-center justify-center text-[5.5px] font-bold flex-shrink-0">1</span>
+                        <span class="truncate">Kỹ nghệ PM tích hợp AI</span>
+                      </div>
+                      <span class="text-[5px] bg-lhu-blue text-white font-mono font-bold px-1 py-0.2 rounded">Architecture</span>
+                    </div>
+                    <div class="text-slate-600 text-[6.1px] leading-snug">
+                      Làm chủ AI Agent; chuyển trọng tâm sang thiết kế kiến trúc, viết Prompt/Context và thẩm định code do AI tạo.
+                    </div>
+                    <!-- Badges giá trị Trụ 1 -->
+                    <div class="flex flex-wrap gap-0.5 mt-0.5">
+                      <span class="text-[5px] bg-white text-lhu-blue border border-blue-200 font-bold px-1 py-0.2 rounded">AI Agent Mastery</span>
+                      <span class="text-[5px] bg-blue-100 text-lhu-blue font-bold px-1 py-0.2 rounded">Prompt Engineering</span>
+                    </div>
+                  </div>
+                  <!-- Hình ảnh nằm DƯỚI content và chiếm trọn không gian trống -->
+                  <div class="relative flex-1 w-full min-h-[40px] mt-1 rounded-md overflow-hidden border border-blue-200 shadow-2xs group">
+                    <img 
+                      src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=400&q=80" 
+                      alt="AI Software Engineering" 
+                      class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      onerror="this.src='https://placehold.co/400x200/013d88/ffffff?text=AI+Software'"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-lhu-blueDark/80 via-transparent to-transparent flex items-end p-1">
+                      <span class="text-[5.5px] text-white font-mono font-bold drop-shadow">AI-Driven Coding</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Trụ 2: Chuyên sâu AI & Dữ liệu -->
+                <div class="bg-lhu-goldLight p-1.5 rounded-lg border border-lhu-gold/60 flex flex-col justify-between shadow-2xs relative overflow-hidden h-full">
+                  <div>
+                    <div class="flex items-center justify-between mb-0.5">
+                      <div class="font-extrabold text-slate-900 text-[7px] flex items-center gap-1">
+                        <span class="w-3 h-3 rounded-full bg-lhu-gold text-slate-950 flex items-center justify-center text-[5.5px] font-black flex-shrink-0">2</span>
+                        <span class="truncate">Chuyên sâu AI & Dữ liệu</span>
+                      </div>
+                      <span class="text-[5px] bg-amber-700 text-white font-mono font-bold px-1 py-0.2 rounded">LLM & RAG</span>
+                    </div>
+                    <div class="text-slate-600 text-[6.1px] leading-snug">
+                      Bắt buộc hóa kiến thức về LLM, RAG, Fine-tuning; chú trọng Kỹ nghệ Dữ liệu (Data Engineering) làm nền tảng.
+                    </div>
+                    <!-- Badges giá trị Trụ 2 -->
+                    <div class="flex flex-wrap gap-0.5 mt-0.5">
+                      <span class="text-[5px] bg-white text-slate-900 border border-lhu-gold/60 font-bold px-1 py-0.2 rounded">Data Engineering</span>
+                      <span class="text-[5px] bg-amber-100 text-amber-900 font-bold px-1 py-0.2 rounded border border-amber-200">Fine-Tuning Pro</span>
+                    </div>
+                  </div>
+                  <!-- Hình ảnh nằm DƯỚI content và chiếm trọn không gian trống -->
+                  <div class="relative flex-1 w-full min-h-[40px] mt-1 rounded-md overflow-hidden border border-lhu-gold/50 shadow-2xs group">
+                    <img 
+                      src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80" 
+                      alt="AI & Data Engineering" 
+                      class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      onerror="this.src='https://placehold.co/400x200/e0b341/ffffff?text=AI+Data'"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-lhu-blueDark/80 via-transparent to-transparent flex items-end p-1">
+                      <span class="text-[5.5px] text-white font-mono font-bold drop-shadow">Deep Data & Models</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Trụ 3: An ninh mạng kỷ nguyên AI (Chuyển sang nền sáng tinh tế) -->
+                <div class="bg-blue-50/60 p-1.5 rounded-lg border border-blue-200 flex flex-col justify-between shadow-2xs relative overflow-hidden h-full">
+                  <div>
+                    <div class="flex items-center justify-between mb-0.5">
+                      <div class="font-extrabold text-lhu-blue text-[7px] flex items-center gap-1">
+                        <span class="w-3 h-3 rounded-full bg-lhu-blue text-white flex items-center justify-center text-[5.5px] font-bold flex-shrink-0">3</span>
+                        <span class="truncate">An ninh mạng kỷ nguyên AI</span>
+                      </div>
+                      <span class="text-[5px] bg-lhu-blue text-white font-mono font-bold px-1 py-0.2 rounded">DevSecOps</span>
+                    </div>
+                    <div class="text-slate-600 text-[6.1px] leading-snug">
+                      Tập trung DevSecOps, bảo mật ứng dụng LLM và tự động kiểm thử, rà soát lỗ hổng cho mã nguồn do AI sinh ra.
+                    </div>
+                    <!-- Badges giá trị Trụ 3 -->
+                    <div class="flex flex-wrap gap-0.5 mt-0.5">
+                      <span class="text-[5px] bg-white text-lhu-blue border border-blue-200 font-bold px-1 py-0.2 rounded">AI Vuln Scan</span>
+                      <span class="text-[5px] bg-lhu-goldLight text-lhu-blue border border-lhu-gold/60 font-bold px-1 py-0.2 rounded">Zero Trust</span>
+                    </div>
+                  </div>
+                  <!-- Hình ảnh nằm DƯỚI content và chiếm trọn không gian trống -->
+                  <div class="relative flex-1 w-full min-h-[40px] mt-1 rounded-md overflow-hidden border border-blue-200 shadow-2xs group">
+                    <img 
+                      src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=400&q=80" 
+                      alt="AI Cyber Security" 
+                      class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      onerror="this.src='https://placehold.co/400x200/013d88/ffffff?text=Security'"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-lhu-blueDark/80 via-transparent to-transparent flex items-end p-1">
+                      <span class="text-[5.5px] text-white font-mono font-bold drop-shadow">Cyber Defense</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Trụ 4: Kiến trúc Cloud-Native -->
+                <div class="bg-blue-50/60 p-1.5 rounded-lg border border-blue-200 flex flex-col justify-between shadow-2xs relative overflow-hidden h-full">
+                  <div>
+                    <div class="flex items-center justify-between mb-0.5">
+                      <div class="font-extrabold text-lhu-blue text-[7px] flex items-center gap-1">
+                        <span class="w-3 h-3 rounded-full bg-lhu-blue text-white flex items-center justify-center text-[5.5px] font-bold flex-shrink-0">4</span>
+                        <span class="truncate">Kiến trúc Cloud-Native</span>
+                      </div>
+                      <span class="text-[5px] bg-lhu-blue text-white font-mono font-bold px-1 py-0.2 rounded">AWS / Cloud</span>
+                    </div>
+                    <div class="text-slate-600 text-[6.1px] leading-snug">
+                      Thực hành trên AWS/Azure/GCP; thiết kế hệ thống Microservices linh hoạt, tối ưu chi phí và mở rộng.
+                    </div>
+                    <!-- Badges giá trị Trụ 4 -->
+                    <div class="flex flex-wrap gap-0.5 mt-0.5">
+                      <span class="text-[5px] bg-white text-lhu-blue border border-blue-200 font-bold px-1 py-0.2 rounded">Microservices</span>
+                      <span class="text-[5px] bg-blue-100 text-lhu-blue font-bold px-1 py-0.2 rounded">Docker & K8s</span>
+                    </div>
+                  </div>
+                  <!-- Hình ảnh nằm DƯỚI content và chiếm trọn không gian trống -->
+                  <div class="relative flex-1 w-full min-h-[40px] mt-1 rounded-md overflow-hidden border border-blue-200 shadow-2xs group">
+                    <img 
+                      src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=400&q=80" 
+                      alt="Cloud Native Microservices" 
+                      class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      onerror="this.src='https://placehold.co/400x200/013d88/ffffff?text=Cloud'"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-lhu-blueDark/80 via-transparent to-transparent flex items-end p-1">
+                      <span class="text-[5.5px] text-white font-mono font-bold drop-shadow">Scalable Cloud</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Trụ 5: Tư duy Sản phẩm & Kỹ năng mềm (Full Width Sáng Đẹp) -->
+              <div class="bg-lhu-goldLight p-1.5 rounded-lg border border-lhu-gold/60 text-[6.3px] flex flex-col justify-between shadow-2xs">
+                <div>
+                  <div class="flex items-center justify-between mb-0.5">
+                    <div class="flex items-center gap-1 text-slate-900 font-extrabold text-[7px]">
+                      <span class="w-3 h-3 rounded-full bg-lhu-gold text-slate-950 flex items-center justify-center text-[5.5px] font-black flex-shrink-0">5</span>
+                      <span>Tư duy Sản phẩm & Kỹ năng mềm:</span>
+                    </div>
+                    <span class="text-[5.5px] bg-lhu-blue text-white font-mono font-bold px-1.5 py-0.2 rounded shadow-2xs">Product Mindset</span>
+                  </div>
+                  <div class="text-slate-700 leading-snug">
+                    Đẩy mạnh tư duy giải quyết bài toán kinh doanh, trải nghiệm người dùng (UX) và kỹ năng giao tiếp phản biện khi AI đã đảm nhận phần lớn việc viết code thô.
+                  </div>
+                  <!-- Badges giá trị Trụ 5 -->
+                  <div class="flex flex-wrap items-center gap-1 mt-0.5">
+                    <span class="text-[5px] bg-white text-slate-800 border border-slate-300 font-bold px-1 py-0.2 rounded">Problem Solving</span>
+                    <span class="text-[5px] bg-white text-slate-800 border border-slate-300 font-bold px-1 py-0.2 rounded">UX/UI Centric</span>
+                    <span class="text-[5px] bg-blue-100 text-lhu-blue font-bold px-1 py-0.2 rounded">Critical Thinking</span>
+                    <span class="text-[5px] bg-lhu-gold text-slate-950 font-black px-1.5 py-0.2 rounded ml-auto flex items-center gap-0.5 border border-white">
+                      <i class="fa-solid fa-check text-[4.5px]"></i> KỸ SƯ TOÀN NĂNG
+                    </span>
+                  </div>
+                </div>
+                <!-- Hình ảnh nằm DƯỚI content và chiếm trọn không gian trống -->
+                <div class="relative w-full h-[32px] mt-1 rounded-md overflow-hidden border border-lhu-gold/50 shadow-2xs group">
+                  <img 
+                    src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80" 
+                    alt="Product Mindset & UX" 
+                    class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    onerror="this.src='https://placehold.co/600x150/e0b341/ffffff?text=UX+Product'"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-r from-lhu-blueDark/80 via-transparent to-transparent flex items-center px-2">
+                    <span class="text-[6px] text-white font-bold drop-shadow">Giải quyết bài toán thực tế & Trải nghiệm người dùng vượt trội</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. SECTION 3 GIÁ TRỊ TRỌNG TÂM CỦA CHƯƠNG TRÌNH ĐÀO TẠO (CHUYỂN SANG NỀN SÁNG CAO CẤP) -->
+            <div class="p-2 bg-gradient-to-r from-blue-50 to-lhu-goldLight rounded-xl border border-blue-200 shadow-sm relative overflow-hidden my-0.5">
+              <div class="flex items-center justify-between mb-1">
+                <div class="flex items-center gap-1 text-lhu-blue font-black text-[8px] uppercase tracking-wider">
+                  <i class="fa-solid fa-gem text-lhu-gold text-[8.5px]"></i>
+                  <span>3 GIÁ TRỊ TRỌNG TÂM CTĐT MANG LẠI</span>
+                </div>
+                <span class="bg-white text-lhu-blue text-[5.5px] font-mono font-bold px-1.5 py-0.2 rounded border border-blue-200">
+                  CORE VALUES
+                </span>
+              </div>
+
+              <div class="space-y-1">
+                <!-- Giá trị 1: PBL - Học qua dự án thực tế -->
+                <div class="p-1 bg-white rounded-lg border border-blue-200/80 flex items-start gap-1.5 shadow-2xs">
+                  <div class="w-4 h-4 rounded bg-blue-100 text-lhu-blue flex items-center justify-center text-[7.5px] font-black flex-shrink-0 mt-0.5">
+                    <i class="fa-solid fa-diagram-project"></i>
+                  </div>
+                  <div>
+                    <div class="text-[7.2px] font-black text-lhu-blue flex items-center gap-1">
+                      <span>DỰ ÁN THỰC CHIẾN (PBL - PROJECT-BASED LEARNING)</span>
+                    </div>
+                    <p class="text-[6.3px] text-slate-600 leading-tight mt-0.5">
+                      Học lý thuyết qua giải quyết bài toán thật: mỗi môn học là <b>1 sản phẩm phần mềm hoàn chỉnh</b> chạy thực tế; ra trường sở hữu ngay bộ <b>Portfolio GitHub & CV</b> ấn tượng.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Giá trị 2: Chuẩn K-S-A toàn diện -->
+                <div class="p-1 bg-white rounded-lg border border-blue-200/80 flex items-start gap-1.5 shadow-2xs">
+                  <div class="w-4 h-4 rounded bg-amber-100 text-amber-800 flex items-center justify-center text-[7.5px] font-black flex-shrink-0 mt-0.5">
+                    <i class="fa-solid fa-brain"></i>
+                  </div>
+                  <div>
+                    <div class="text-[7.2px] font-black text-slate-900 flex items-center gap-1">
+                      <span>CHUẨN HÓA NĂNG LỰC K-S-A TOÀN DIỆN</span>
+                    </div>
+                    <p class="text-[6.3px] text-slate-600 leading-tight mt-0.5">
+                      Cân bằng vững chắc: <b>Kiến thức (Knowledge)</b> nền tảng cốt lõi + <b>Kỹ năng (Skill)</b> thực chiến bằng công cụ AI + <b>Thái độ (Attitude)</b> đạo đức nghề nghiệp, chuẩn kỹ sư ABET.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Giá trị 3: Cọ sát đấu trường liên tục -->
+                <div class="p-1 bg-white rounded-lg border border-blue-200/80 flex items-start gap-1.5 shadow-2xs">
+                  <div class="w-4 h-4 rounded bg-blue-100 text-lhu-blue flex items-center justify-center text-[7.5px] font-black flex-shrink-0 mt-0.5">
+                    <i class="fa-solid fa-trophy text-lhu-gold"></i>
+                  </div>
+                  <div>
+                    <div class="text-[7.2px] font-black text-lhu-blue flex items-center gap-1">
+                      <span>CỌ SÁT ĐẤU TRƯỜNG & DOANH NGHIỆP LIÊN TỤC</span>
+                    </div>
+                    <p class="text-[6.3px] text-slate-600 leading-tight mt-0.5">
+                      100% sinh viên được tôi luyện qua các sân chơi lớn từ Năm 1 đến Năm 4 (<b>VietFuture, Euréka, ICPC, Hackathon DN</b>), kết hợp thực tập On-the-job training hưởng lương tại doanh nghiệp.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5. Bottom Duration & K-S-A Commitment Badge -->
+            <div class="p-1 bg-blue-50 border border-blue-200 rounded-xl flex items-center justify-between shadow-2xs">
+              <div class="flex items-center gap-1 text-[7.2px] text-lhu-blue">
+                <i class="fa-solid fa-graduation-cap text-lhu-gold"></i>
+                <span>Thời gian: <b>3.5 - 4 năm</b> (Chuẩn kiểm định ABET Hoa Kỳ)</span>
+              </div>
+              <span class="bg-lhu-blue text-white text-[6.5px] font-bold px-1.5 py-0.2 rounded font-mono border border-lhu-gold/40">
+                100% JOB-READY
+              </span>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- CỘT 2 (Trang 3): LỘ TRÌNH 4 NĂM KẾT NỐI LIỀN MẠCH -->
+        <!-- ========================================== -->
+        <section class="h-full p-3 flex flex-col justify-between border-r border-slate-200 bg-white relative">
+          <div class="flex-1 flex flex-col justify-between">
+            <!-- Header Cột 2 -->
+            <div>
+              <div class="flex items-center justify-between mb-0.5">
+                <div class="flex items-center gap-1.5 text-lhu-blue font-bold text-[10px] uppercase tracking-wider">
+                  <span class="w-2 h-1 rounded-full bg-lhu-gold"></span>
+                  Hành trình 4 năm đào tạo
+                </div>
+                <div class="flex items-center gap-1">
+                  <span class="bg-lhu-goldLight text-slate-900 border border-lhu-gold text-[6.5px] font-black px-1.5 py-0.5 rounded-full">
+                    <i class="fa-solid fa-flag-usa mr-0.5 text-lhu-gold"></i> ABET CURRICULUM
+                  </span>
+                  <span class="bg-blue-50 text-lhu-blue text-[7px] font-black px-1.5 py-0.5 rounded-full shadow-2xs border border-blue-200">
+                    4 NĂM &bull; 4+ SẢN PHẨM
+                  </span>
+                </div>
+              </div>
+              <h2 class="text-xs font-black text-lhu-blue tracking-tight">
+                LỘ TRÌNH RÈN LUYỆN SẢN PHẨM & CỌ SÁT
+              </h2>
+            </div>
+
+            <!-- KHỐI PIPELINE KẾT NỐI 4 NĂM SÁNG SỦA VÀ THANH LỊCH -->
+            <div class="relative pl-3.5 space-y-1.5 my-0.5">
+              <!-- Đường trục nối liền xuyên suốt từ Năm 1 đến Năm 4 (Gradient Xanh sang Vàng Kim) -->
+              <div class="absolute left-1.5 top-2.5 bottom-2.5 w-0.5 bg-gradient-to-b from-lhu-blue via-blue-400 to-lhu-gold rounded-full"></div>
+
+              <!-- CHẶNG NĂM 1 -->
+              <div class="relative group">
+                <!-- Node Icon trên trục -->
+                <div class="absolute -left-[17px] top-1.5 w-3.5 h-3.5 rounded-full bg-lhu-blue text-white flex items-center justify-center text-[7px] font-black shadow-xs ring-2 ring-white">
+                  1
+                </div>
+                <div class="bg-blue-50/50 hover:bg-blue-50 transition-colors p-1.5 rounded-xl border border-blue-200 shadow-2xs">
+                  <div class="flex items-center justify-between mb-0.5">
+                    <span class="text-[8px] font-black text-lhu-blue uppercase">Năm 1: Khởi tạo nền tảng & Tư duy số</span>
+                    <div class="flex items-center gap-1">
+                      <span class="text-[6.5px] bg-lhu-blue text-white font-bold px-1.5 py-0.2 rounded font-mono">C/C++</span>
+                      <span class="text-[6.5px] bg-lhu-goldLight text-slate-900 font-bold px-1.5 py-0.2 rounded font-mono border border-lhu-gold/60">Python</span>
+                    </div>
+                  </div>
+                  <!-- Tech Badges Năm 1 -->
+                  <div class="flex flex-wrap gap-1 mb-1">
+                    <span class="bg-white border border-slate-200 text-slate-700 text-[6px] font-mono px-1 py-0.2 rounded">DSA (Giải thuật)</span>
+                    <span class="bg-white border border-slate-200 text-slate-700 text-[6px] font-mono px-1 py-0.2 rounded">Git/GitHub Flow</span>
+                    <span class="bg-blue-50 border border-blue-200 text-lhu-blue text-[6px] font-mono font-bold px-1 py-0.2 rounded">HTML/CSS/JS</span>
+                  </div>
+                  <div class="space-y-0.5 text-[7px] leading-tight">
+                    <div><b class="text-lhu-blue">📦 Sản phẩm:</b> Web Profile cá nhân + Mini Game 2D thuật toán.</div>
+                    <div><b class="text-slate-800">🧠 K-S-A:</b> Cấu trúc dữ liệu & giải thuật; Quản trị Git; Tinh thần kiên trì.</div>
+                    <div><b class="text-lhu-goldDark">🏆 Cọ sát:</b> Lập trình thuật toán cơ sở ICPC; Sân chơi Sáng tạo trẻ LHU.</div>
+                  </div>
+                </div>
+                <!-- Connector Arrow xuống Năm 2 -->
+                <div class="flex items-center justify-center -my-1 text-slate-400 text-[8px]">
+                  <i class="fa-solid fa-angles-down text-lhu-blue animate-bounce"></i>
+                </div>
+              </div>
+
+              <!-- CHẶNG NĂM 2 -->
+              <div class="relative group">
+                <!-- Node Icon trên trục -->
+                <div class="absolute -left-[17px] top-1.5 w-3.5 h-3.5 rounded-full bg-blue-600 text-white flex items-center justify-center text-[7px] font-black shadow-xs ring-2 ring-white">
+                  2
+                </div>
+                <div class="bg-blue-50/60 hover:bg-blue-50 transition-colors p-1.5 rounded-xl border border-blue-200/90 shadow-2xs">
+                  <div class="flex items-center justify-between mb-0.5">
+                    <span class="text-[8px] font-black text-lhu-blue uppercase">Năm 2: Vibe Coding & Cơ sở ngành</span>
+                    <div class="flex items-center gap-1">
+                      <span class="text-[6.5px] bg-lhu-gold text-slate-950 font-bold px-1.5 py-0.2 rounded font-mono">Vibe Coding</span>
+                      <span class="text-[6.5px] bg-blue-100 text-lhu-blue font-bold px-1.5 py-0.2 rounded font-mono border border-blue-200">Agile - Scrum</span>
+                    </div>
+                  </div>
+                  <!-- Tech Badges Năm 2 -->
+                  <div class="flex flex-wrap gap-1 mb-1">
+                    <span class="bg-white border border-blue-200 text-lhu-blue text-[6px] font-mono px-1 py-0.2 rounded">Java / C# OOP</span>
+                    <span class="bg-white border border-blue-200 text-lhu-blue text-[6px] font-mono px-1 py-0.2 rounded">SQL & NoSQL</span>
+                    <span class="bg-white border border-blue-200 text-lhu-blue text-[6px] font-mono px-1 py-0.2 rounded">RESTful APIs</span>
+                    <span class="bg-lhu-goldLight text-amber-900 text-[6px] font-mono font-bold px-1 py-0.2 rounded border border-lhu-gold/60">AI Prompting</span>
+                  </div>
+                  <div class="space-y-0.5 text-[7px] leading-tight">
+                    <div><b class="text-lhu-blue">📦 Sản phẩm:</b> App Full-stack (CRUD, Database, API) quản lý thực tế.</div>
+                    <div><b class="text-slate-800">🧠 K-S-A:</b> OOP chuyên sâu, CSDL; Vibe Coding tốc độ; Làm việc nhóm Sprint.</div>
+                    <div><b class="text-lhu-goldDark">🏆 Cọ sát:</b> Vòng loại SV Nghiên cứu Euréka; Hội thi Khởi nghiệp ĐMST Tỉnh.</div>
+                  </div>
+                </div>
+                <!-- Connector Arrow xuống Năm 3 -->
+                <div class="flex items-center justify-center -my-1 text-slate-400 text-[8px]">
+                  <i class="fa-solid fa-angles-down text-blue-500"></i>
+                </div>
+              </div>
+
+              <!-- CHẶNG NĂM 3 -->
+              <div class="relative group">
+                <!-- Node Icon trên trục -->
+                <div class="absolute -left-[17px] top-1.5 w-3.5 h-3.5 rounded-full bg-lhu-gold text-slate-950 flex items-center justify-center text-[7px] font-black shadow-xs ring-2 ring-white">
+                  3
+                </div>
+                <div class="bg-lhu-goldLight hover:bg-amber-50 transition-colors p-1.5 rounded-xl border border-lhu-gold/70 shadow-2xs">
+                  <div class="flex items-center justify-between mb-0.5">
+                    <span class="text-[8px] font-black text-slate-900 uppercase">Năm 3: System Design & Giải pháp AI/Cloud</span>
+                    <div class="flex items-center gap-1">
+                      <span class="text-[6.5px] bg-lhu-blue text-white font-black px-1.5 py-0.2 rounded font-mono">System Design</span>
+                      <span class="text-[6.5px] bg-white text-slate-900 font-bold px-1.5 py-0.2 rounded font-mono border border-lhu-gold/60">AWS Cloud</span>
+                    </div>
+                  </div>
+                  <!-- Tech Badges Năm 3 -->
+                  <div class="flex flex-wrap gap-1 mb-1">
+                    <span class="bg-white border border-lhu-gold/50 text-slate-800 text-[6px] font-mono px-1 py-0.2 rounded">Microservices</span>
+                    <span class="bg-white border border-lhu-gold/50 text-slate-800 text-[6px] font-mono px-1 py-0.2 rounded">Docker / K8s</span>
+                    <span class="bg-white border border-lhu-gold/50 text-slate-800 text-[6px] font-mono px-1 py-0.2 rounded">LLM Integration</span>
+                    <span class="bg-blue-100 text-lhu-blue text-[6px] font-mono font-bold px-1 py-0.2 rounded border border-blue-200">CI/CD Pipeline</span>
+                  </div>
+                  <div class="space-y-0.5 text-[7px] leading-tight">
+                    <div><b class="text-lhu-blue">📦 Sản phẩm:</b> App AI/Cloud giải quyết bài toán vận hành nhà máy, DN.</div>
+                    <div><b class="text-slate-800">🧠 K-S-A:</b> Thiết kế kiến trúc chịu tải; CI/CD; Thuyết trình kỹ thuật.</div>
+                    <div><b class="text-amber-800">🏆 Cọ sát:</b> Tranh tài <b>VietFuture Award</b>; Hội thi Sáng tạo Kỹ thuật Tỉnh.</div>
+                  </div>
+                </div>
+                <!-- Connector Arrow xuống Năm 4 -->
+                <div class="flex items-center justify-center -my-1 text-slate-400 text-[8px]">
+                  <i class="fa-solid fa-angles-down text-lhu-gold"></i>
+                </div>
+              </div>
+
+              <!-- CHẶNG NĂM 4 -->
+              <div class="relative group">
+                <!-- Node Icon trên trục -->
+                <div class="absolute -left-[17px] top-1.5 w-3.5 h-3.5 rounded-full bg-lhu-blueDark text-lhu-gold flex items-center justify-center text-[7px] font-black shadow-xs ring-2 ring-white border border-lhu-gold">
+                  4
+                </div>
+                <div class="bg-blue-50/70 hover:bg-blue-50 transition-colors p-1.5 rounded-xl border border-blue-300 shadow-2xs">
+                  <div class="flex items-center justify-between mb-0.5">
+                    <span class="text-[8px] font-black text-lhu-blue uppercase">Năm 4: On-job Training & Kỹ sư ABET</span>
+                    <div class="flex items-center gap-1">
+                      <span class="text-[6.5px] bg-blue-100 text-lhu-blue font-bold px-1.5 py-0.2 rounded font-mono border border-blue-200">ABET Global</span>
+                      <span class="text-[6.5px] bg-lhu-blue text-white font-bold px-1.5 py-0.2 rounded font-mono">Doanh Nghiệp</span>
+                    </div>
+                  </div>
+                  <!-- Tech Badges Năm 4 -->
+                  <div class="flex flex-wrap gap-1 mb-1">
+                    <span class="bg-white border border-blue-200 text-lhu-blue text-[6px] font-mono px-1 py-0.2 rounded">Enterprise Design</span>
+                    <span class="bg-white border border-blue-200 text-lhu-blue text-[6px] font-mono px-1 py-0.2 rounded">Agile at Scale</span>
+                    <span class="bg-lhu-goldLight text-amber-900 border border-lhu-gold text-[6px] font-mono px-1 py-0.2 rounded">Global IT English</span>
+                  </div>
+                  <div class="space-y-0.5 text-[7px] leading-tight">
+                    <div><b class="text-lhu-blue">📦 Sản phẩm:</b> Đồ án tốt nghiệp thương mại hóa + Portfolio & Global CV.</div>
+                    <div><b class="text-slate-800">🧠 K-S-A:</b> Thực tập 3-6 tháng có lương; Tiếng Anh IT; Tác phong chuẩn kỹ sư ABET.</div>
+                    <div><b class="text-lhu-goldDark">🎯 Cột mốc:</b> Bảo vệ đồ án trước Doanh Nghiệp & Nhận việc ngay!</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- KHU VỰC ĐẤU TRƯỜNG & SÂN CHƠI CÔNG NGHỆ THỰC CHIẾN (CHUYỂN SANG ROYAL BLUE TƯƠI SÁNG & GOLD) -->
+          <div class="my-1 flex-1 flex flex-col justify-between bg-gradient-to-br from-lhu-blue via-blue-700 to-lhu-blueDark rounded-2xl p-2 text-white border border-lhu-gold/40 shadow-md relative overflow-hidden">
+            <!-- Decorative tech effects -->
+            <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-lhu-gold/25 rounded-full blur-xl pointer-events-none"></div>
+            <div class="absolute top-0 right-0 w-28 h-full lhu-pattern-gold opacity-15 pointer-events-none"></div>
+
+            <div>
+              <div class="flex items-center justify-between mb-0.5">
+                <div class="flex items-center gap-1.5 text-lhu-gold font-black text-[9px] uppercase tracking-wider">
+                  <i class="fa-solid fa-trophy text-lhu-gold"></i>
+                  <span>HỆ THỐNG ĐẤU TRƯỜNG & SÂN CHƠI CÔNG NGHỆ</span>
+                </div>
+                <span class="bg-white/20 text-lhu-gold text-[6.5px] font-mono px-1.5 py-0.5 rounded border border-lhu-gold/40 font-bold">
+                  THỬ LỬA THƯỜNG NIÊN
+                </span>
+              </div>
+              <p class="text-[6.8px] text-blue-100 leading-tight mb-1">
+                Cuối mỗi năm, 100% sinh viên được dẫn dắt cọ sát trực tiếp tại các đấu trường chuyên nghiệp cấp Tỉnh, Quốc gia và Quốc tế để tôi luyện bản lĩnh:
+              </p>
+
+              <!-- HỆ THỐNG BADGES ĐẶC QUYỀN & GIẢI THƯỞNG KHI THAM GIA ĐẤU TRƯỜNG -->
+              <div class="bg-white/10 backdrop-blur-md rounded-xl p-1 border border-lhu-gold/30 mb-1">
+                <div class="flex items-center justify-between mb-0.5 px-0.5">
+                  <span class="text-[6.5px] font-black text-lhu-gold uppercase tracking-wide flex items-center gap-1">
+                    <i class="fa-solid fa-gift text-lhu-gold"></i> ĐẶC QUYỀN & QUYỀN LỢI ĐẠT GIẢI:
+                  </span>
+                  <span class="text-[5.5px] text-amber-200 font-mono">LHU INCENTIVES</span>
+                </div>
+                <div class="flex flex-wrap gap-1">
+                  <span class="bg-gradient-to-r from-lhu-gold to-amber-400 text-slate-950 font-black text-[6px] px-1.5 py-0.2 rounded-md shadow-2xs flex items-center gap-0.5 border border-white">
+                    <i class="fa-solid fa-medal text-[5.5px]"></i> ĐẶC CÁCH TỐT NGHIỆP
+                  </span>
+                  <span class="bg-blue-900/90 text-white font-extrabold text-[6px] px-1.5 py-0.2 rounded-md shadow-2xs flex items-center gap-0.5 border border-lhu-gold/40">
+                    <i class="fa-solid fa-star text-[5.5px] text-lhu-gold"></i> ĐẶC CÁCH & MIỄN MÔN HỌC
+                  </span>
+                  <span class="bg-white/15 text-white border border-white/20 font-bold text-[6px] px-1.5 py-0.2 rounded-md flex items-center gap-0.5">
+                    <i class="fa-solid fa-briefcase text-[5.5px] text-lhu-gold"></i> TRẢI NGHIỆM DỰ ÁN THỰC
+                  </span>
+                  <span class="bg-white/15 text-white border border-white/20 font-bold text-[6px] px-1.5 py-0.2 rounded-md flex items-center gap-0.5">
+                    <i class="fa-solid fa-users-viewfinder text-[5.5px] text-lhu-gold"></i> KẾT NỐI BẠN BÈ & MENTOR
+                  </span>
+                  <span class="bg-lhu-gold/30 text-amber-200 border border-lhu-gold/40 font-bold text-[6px] px-1.5 py-0.2 rounded-md flex items-center gap-0.5">
+                    <i class="fa-solid fa-sack-dollar text-[5.5px] text-lhu-gold"></i> TIỀN THƯỞNG DOANH NGHIỆP
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Grid 6 Sân chơi công nghệ lớn lấp đầy không gian -->
+            <div class="grid grid-cols-2 gap-1 my-0.5">
+              <!-- Sân chơi 1: VietFuture -->
+              <div class="bg-white/15 backdrop-blur-sm p-1.5 rounded-lg border border-white/20 hover:border-lhu-gold/50 transition">
+                <div class="flex items-center gap-1 text-lhu-gold font-extrabold text-[7.5px] mb-0.5">
+                  <i class="fa-solid fa-award text-[8px]"></i> VietFuture Award
+                </div>
+                <div class="text-[6.5px] text-blue-100 leading-tight">Giải thưởng ĐMST & Công nghệ số sinh viên toàn quốc.</div>
+              </div>
+
+              <!-- Sân chơi 2: Sáng tạo KT Tỉnh / Toàn quốc -->
+              <div class="bg-white/15 backdrop-blur-sm p-1.5 rounded-lg border border-white/20 hover:border-lhu-gold/50 transition">
+                <div class="flex items-center gap-1 text-lhu-gold font-extrabold text-[7.5px] mb-0.5">
+                  <i class="fa-solid fa-medal text-[8px]"></i> Sáng tạo Kỹ thuật Tỉnh
+                </div>
+                <div class="text-[6.5px] text-blue-100 leading-tight">Hội thi Sáng tạo Kỹ thuật Đồng Nai & Hội thi Toàn quốc (VIFOTEC).</div>
+              </div>
+
+              <!-- Sân chơi 3: Euréka -->
+              <div class="bg-white/15 backdrop-blur-sm p-1.5 rounded-lg border border-white/20 hover:border-lhu-gold/50 transition">
+                <div class="flex items-center gap-1 text-white font-extrabold text-[7.5px] mb-0.5">
+                  <i class="fa-solid fa-flask-vial text-[8px] text-lhu-gold"></i> Giải thưởng Euréka
+                </div>
+                <div class="text-[6.5px] text-blue-100 leading-tight">Giải thưởng NCKH sinh viên uy tín hàng đầu toàn quốc.</div>
+              </div>
+
+              <!-- Sân chơi 4: ICPC & Olympic Tin học -->
+              <div class="bg-white/15 backdrop-blur-sm p-1.5 rounded-lg border border-white/20 hover:border-lhu-gold/50 transition">
+                <div class="flex items-center gap-1 text-lhu-gold font-extrabold text-[7.5px] mb-0.5">
+                  <i class="fa-solid fa-code text-[8px]"></i> ICPC & Olympic Tin học
+                </div>
+                <div class="text-[6.5px] text-blue-100 leading-tight">Đấu trường lập trình thuật toán đỉnh cao sinh viên quốc tế.</div>
+              </div>
+
+              <!-- Sân chơi 5: Đấu trường Robocon & IoT -->
+              <div class="bg-white/15 backdrop-blur-sm p-1.5 rounded-lg border border-white/20 hover:border-lhu-gold/50 transition">
+                <div class="flex items-center gap-1 text-lhu-gold font-extrabold text-[7.5px] mb-0.5">
+                  <i class="fa-solid fa-robot text-[8px]"></i> ABU Robocon & Maker
+                </div>
+                <div class="text-[6.5px] text-blue-100 leading-tight">Bản lĩnh vô địch Robocon Châu Á - TBD, IoT & Thiết bị thông minh.</div>
+              </div>
+
+              <!-- Sân chơi 6: Hackathon Doanh Nghiệp -->
+              <div class="bg-white/15 backdrop-blur-sm p-1.5 rounded-lg border border-white/20 hover:border-lhu-gold/50 transition">
+                <div class="flex items-center gap-1 text-lhu-gold font-extrabold text-[7.5px] mb-0.5">
+                  <i class="fa-solid fa-bolt text-[8px]"></i> Corporate Hackathons
+                </div>
+                <div class="text-[6.5px] text-blue-100 leading-tight">Sprint 48h giải bài toán thực tế do FPT, Viettel, TMA tài trợ.</div>
+              </div>
+            </div>
+
+            <!-- Khung hình ảnh Layered Showcase tích hợp gọn gàng -->
+            <div class="organic-layer-base mt-1 h-14 flex items-center justify-center">
+              <div class="w-full h-full rounded-xl overflow-hidden shadow-xs relative border border-white/20 group">
+                <img 
+                  src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=700&q=80" 
+                  alt="Sinh viên LHU code hackathon và demo sản phẩm" 
+                  class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  onerror="this.src='https://placehold.co/700x250/013d88/ffffff?text=Hackathon+LHU'"
+                />
+                <div class="absolute inset-0 bg-gradient-to-r from-lhu-blueDark/90 via-lhu-blue/60 to-transparent flex items-center justify-between px-2.5">
+                  <div class="text-[7.5px] text-white">
+                    <span class="font-black text-lhu-gold block flex items-center gap-1">
+                      <i class="fa-solid fa-certificate"></i> TÔI LUYỆN BẢN LĨNH &bull; TỰ HÀO THÀNH TÍCH LHU
+                    </span>
+                    <span class="text-blue-100 text-[6.5px]">Tích lũy kinh nghiệm, chứng nhận & profile GitHub chất lượng cao</span>
+                  </div>
+                  <span class="bg-lhu-gold text-slate-950 text-[6.5px] font-black px-2 py-0.5 rounded shadow-sm border border-white">
+                    CHINH PHỤC GIẢI THƯỞNG
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Footer Lộ trình -->
+          <div class="p-1 bg-blue-50 border border-blue-200 rounded-xl flex items-center justify-between shadow-2xs">
+            <div class="flex items-center gap-1">
+              <i class="fa-solid fa-circle-check text-emerald-600 text-xs"></i>
+              <span class="text-[7.5px] text-lhu-blue font-extrabold">100% Sinh viên có sản phẩm thực tế chứng minh năng lực</span>
+            </div>
+            <span class="bg-lhu-blue text-white text-[6px] font-mono font-bold px-1.5 py-0.2 rounded uppercase border border-lhu-gold/40">JOB-READY</span>
+          </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- CỘT 3 (Trang 4): HỆ SINH THÁI GIÁ TRỊ & CÁC CÂU LẠC BỘ CHUYÊN NGÀNH (FITPro, FITWan, AI Lab...) -->
+        <!-- ========================================== -->
+        <section class="h-full p-3 flex flex-col justify-between border-slate-200 bg-gradient-to-b from-white via-lhu-blueLight/30 to-white relative">
+          <div class="flex-1 flex flex-col justify-between">
+            
+            <!-- Header Trang Đời Sống SV (Đổi sang tông xanh LHU thanh lịch) -->
+            <div>
+              <div class="flex items-center justify-between mb-0.5">
+                <div class="flex items-center gap-1.5 text-lhu-blue font-bold text-[10.5px] uppercase tracking-wider">
+                  <i class="fa-solid fa-heart-pulse text-lhu-gold"></i> Đời sống & Trải nghiệm
+                </div>
+                <span class="bg-blue-50 text-lhu-blue text-[7px] font-black px-2 py-0.5 rounded-full shadow-2xs border border-blue-200">
+                  CAMPUS LIFE 5 SAO
+                </span>
+              </div>
+              <h2 class="text-xs font-black text-lhu-blue tracking-tight">
+                HỆ SINH THÁI ĐẶC QUYỀN SINH VIÊN LHU
+              </h2>
+            </div>
+
+            <!-- LAYOUT LƯỚI 2 CỘT 2 DÒNG: 4 KHUNG ẢNH ĐA TẦNG ĐẶC QUYỀN SÁNG SỦA (CHIẾM ~1/2 TRANG) -->
+            <div class="my-1 grid grid-cols-2 gap-1.5 h-[168px]">
+              
+              <!-- Ô 1: Cơ sở vật chất & Innovation Lab -->
+              <div class="organic-layer-base relative rounded-xl overflow-hidden border border-blue-200 shadow-2xs group flex flex-col">
+                <img 
+                  src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=400&q=80" 
+                  alt="Innovation Lab LHU" 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onerror="this.src='https://placehold.co/400x250/013d88/ffffff?text=Innovation+Lab'"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-lhu-blueDark/80 via-transparent to-transparent flex flex-col justify-end p-1.5">
+                  <span class="text-[7.5px] font-black text-white flex items-center gap-1">
+                    <i class="fa-solid fa-server text-lhu-gold text-[8px]"></i> Smart Lab & AI 24/7
+                  </span>
+                  <span class="text-[6px] text-blue-100">Maker Space & Thư viện số hiện đại</span>
+                </div>
+                <!-- Badges giá trị -->
+                <div class="absolute top-1 left-1 bg-lhu-blue/90 backdrop-blur-xs text-white text-[5.5px] font-bold px-1 py-0.2 rounded border border-blue-300">
+                  <i class="fa-solid fa-microchip text-lhu-gold mr-0.5"></i> Cấu hình cao
+                </div>
+                <div class="absolute top-1 right-1 bg-lhu-gold text-slate-950 text-[5px] font-black px-1 py-0.2 rounded border border-white">
+                  FREE 100%
+                </div>
+              </div>
+
+              <!-- Ô 2: Thể dục thể thao & Thể chất (Thay nền mận bằng xanh năng động) -->
+              <div class="organic-layer-base relative rounded-xl overflow-hidden border border-blue-200 shadow-2xs group flex flex-col">
+                <img 
+                  src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=400&q=80" 
+                  alt="Khu thể thao & Gym LHU" 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onerror="this.src='https://placehold.co/400x250/013d88/ffffff?text=Sport+Gym'"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-lhu-blueDark/80 via-transparent to-transparent flex flex-col justify-end p-1.5">
+                  <span class="text-[7.5px] font-black text-white flex items-center gap-1">
+                    <i class="fa-solid fa-dumbbell text-lhu-gold text-[8px]"></i> Sân Cỏ & Gym Pro
+                  </span>
+                  <span class="text-[6px] text-blue-100">Khu liên hợp thể thao chuẩn sinh viên</span>
+                </div>
+                <!-- Badges giá trị -->
+                <div class="absolute top-1 left-1 bg-emerald-600/90 backdrop-blur-xs text-white text-[5.5px] font-bold px-1 py-0.2 rounded">
+                  <i class="fa-solid fa-heart-pulse mr-0.5"></i> Sức khỏe vàng
+                </div>
+                <div class="absolute top-1 right-1 bg-lhu-blue text-white text-[5px] font-black px-1 py-0.2 rounded">
+                  ĐA NĂNG
+                </div>
+              </div>
+
+              <!-- Ô 3: Phong trào Đoàn - Hội & CLB bùng nổ -->
+              <div class="organic-layer-base relative rounded-xl overflow-hidden border border-lhu-gold shadow-2xs group flex flex-col">
+                <img 
+                  src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=400&q=80" 
+                  alt="Phong trào sinh viên năng động LHU" 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onerror="this.src='https://placehold.co/400x250/e0b341/ffffff?text=Doan+Hoi+CLB'"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-lhu-blueDark/80 via-transparent to-transparent flex flex-col justify-end p-1.5">
+                  <span class="text-[7.5px] font-black text-white flex items-center gap-1">
+                    <i class="fa-solid fa-users text-lhu-gold text-[8px]"></i> 50+ CLB & Đoàn Hội
+                  </span>
+                  <span class="text-[6px] text-blue-100">Mùa hè xanh &bull; Kỹ năng mềm toàn diện</span>
+                </div>
+                <!-- Badges giá trị -->
+                <div class="absolute top-1 left-1 bg-lhu-blue/90 backdrop-blur-xs text-white text-[5.5px] font-bold px-1 py-0.2 rounded border border-lhu-gold/40">
+                  <i class="fa-solid fa-fire text-lhu-gold mr-0.5"></i> Năng động
+                </div>
+                <div class="absolute top-1 right-1 bg-lhu-gold text-slate-950 text-[5px] font-black px-1 py-0.2 rounded border border-white">
+                  50+ CLB
+                </div>
+              </div>
+
+              <!-- Ô 4: Kết nối Đa ngành & Hội nhập Quốc tế -->
+              <div class="organic-layer-base relative rounded-xl overflow-hidden border border-blue-200 shadow-2xs group flex flex-col">
+                <img 
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&q=80" 
+                  alt="Giao lưu & Hội nhập quốc tế" 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onerror="this.src='https://placehold.co/400x250/013d88/ffffff?text=Hoi+Nhap+Quoc+Te'"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-lhu-blueDark/80 via-transparent to-transparent flex flex-col justify-end p-1.5">
+                  <span class="text-[7.5px] font-black text-white flex items-center gap-1">
+                    <i class="fa-solid fa-earth-asia text-lhu-gold text-[8px]"></i> Trao đổi Quốc tế & Đa ngành
+                  </span>
+                  <span class="text-[6px] text-blue-100">Thực tập Nhật/Đài/Hàn &bull; Y Dược & Smart Tech</span>
+                </div>
+                <!-- Badges giá trị -->
+                <div class="absolute top-1 left-1 bg-lhu-blue/90 backdrop-blur-xs text-white text-[5.5px] font-bold px-1 py-0.2 rounded border border-blue-300">
+                  <i class="fa-solid fa-globe text-lhu-gold mr-0.5"></i> Global 360°
+                </div>
+                <div class="absolute top-1 right-1 bg-amber-600 text-white text-[5px] font-black px-1 py-0.2 rounded">
+                  TRAO ĐỔI
+                </div>
+              </div>
+
+            </div>
+
+            <!-- KHỐI 1: TỔ HỢP TỔ ONG CÔNG NGHỆ (CHUYỂN SANG PHONG CÁCH XANH SÁNG & GOLD QUÝ PHÁI) -->
+            <div class="flex-1 flex flex-col justify-between bg-gradient-to-br from-lhu-blue via-blue-700 to-lhu-blueDark p-2 rounded-2xl border border-lhu-gold/40 shadow-md text-white relative overflow-hidden my-0.5 min-h-[145px]">
+              <!-- Hiệu ứng nền công nghệ LHU -->
+              <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-lhu-gold/25 rounded-full blur-2xl pointer-events-none"></div>
+              <div class="absolute -left-4 -top-4 w-20 h-20 bg-blue-300/20 rounded-full blur-xl pointer-events-none"></div>
+              <div class="absolute top-0 left-0 w-full h-full lhu-pattern-gold opacity-15 pointer-events-none"></div>
+
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-0.5">
+                  <div class="flex items-center gap-1.5 text-[8.5px] font-black text-lhu-gold uppercase tracking-wide">
+                    <i class="fa-solid fa-hexagon-nodes text-lhu-gold"></i>
+                    <span>CLB CHUYÊN NGÀNH VÀ LIÊN KẾT ĐÀO TẠO</span>
+                  </div>
+                  <span class="bg-gradient-to-r from-lhu-gold to-amber-400 text-slate-950 text-[6px] font-mono px-1.5 py-0.2 rounded font-black tracking-tight border border-white">
+                    HONEYCOMB MATRIX
+                  </span>
+                </div>
+                <p class="text-[6.5px] text-blue-100 leading-tight">
+                  Mỗi ô lục giác là 1 mắt xích rèn luyện thực chiến, gắn chặt chẽ với từng học phần trọng tâm trong chương trình đào tạo:
+                </p>
+              </div>
+
+              <!-- CẤU TRÚC TỔ ONG ĐAN XEN ZÍC-ZẮC TỰ ĐỘNG CÂN GIÃN VÙNG GIỮA -->
+              <div class="relative z-10 flex-1 flex flex-col items-center justify-center my-0.5">
+                
+                <!-- HÀNG TRÊN: 3 Ô LỤC GIÁC (FITPro - AI Lab Trung Tâm - FITWan) -->
+                <div class="flex items-center justify-center gap-2">
+                  
+                  <!-- Hex 1: FITPro (Liên kết: Khối Kỹ Thuật Phần Mềm) -->
+                  <div class="hex-item flex flex-col items-center">
+                    <div class="w-[66px] h-[74px] bg-gradient-to-b from-blue-300 via-lhu-blue to-blue-900 p-[2px] hex-clip flex items-center justify-center shadow-md">
+                      <div class="w-full h-full bg-slate-900 hex-clip relative overflow-hidden group">
+                        <img 
+                          src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=250&q=80" 
+                          alt="FITPro Lập trình" 
+                          class="w-full h-full object-cover group-hover:scale-110 transition duration-500 opacity-60"
+                          onerror="this.src='https://placehold.co/200x200/013d88/ffffff?text=FITPro'"
+                        />
+                        <div class="absolute inset-0 bg-lhu-blueDark/80 flex flex-col items-center justify-center p-1 text-center">
+                          <i class="fa-solid fa-code text-lhu-gold text-[10px] mb-0.5"></i>
+                          <span class="text-[7.5px] font-black text-white leading-none tracking-tight">FITPro</span>
+                          <span class="text-[5px] text-blue-200 mt-0.5 font-mono">Dev & Code</span>
+                        </div>
+                      </div>
+                    </div>
+                    <span class="text-[5.5px] text-white font-extrabold mt-0.5 bg-lhu-blue/90 px-1 py-0.2 rounded border border-blue-400/40">Khối Phần mềm</span>
+                  </div>
+
+                  <!-- Hex 2 (Trung tâm): AI LAB & MAKER (Liên kết: Khối Trí Tuệ Nhân Tạo & IoT) -->
+                  <div class="hex-item flex flex-col items-center -translate-y-1">
+                    <div class="w-[70px] h-[78px] bg-gradient-to-b from-lhu-gold via-amber-300 to-amber-600 p-[2.5px] hex-clip flex items-center justify-center shadow-lhu-gold">
+                      <div class="w-full h-full bg-slate-950 hex-clip relative overflow-hidden group">
+                        <img 
+                          src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=250&q=80" 
+                          alt="AI Lab & Maker" 
+                          class="w-full h-full object-cover group-hover:scale-110 transition duration-500 opacity-60"
+                          onerror="this.src='https://placehold.co/200x200/e0b341/ffffff?text=AI+Lab'"
+                        />
+                        <div class="absolute inset-0 bg-lhu-blueDark/85 flex flex-col items-center justify-center p-1 text-center">
+                          <i class="fa-solid fa-brain text-lhu-gold text-[11px] mb-0.5 animate-pulse"></i>
+                          <span class="text-[8px] font-black text-white leading-none tracking-tight">AI LAB</span>
+                          <span class="text-[5.5px] text-amber-200 mt-0.5 font-mono font-bold">CORE HUB</span>
+                        </div>
+                      </div>
+                    </div>
+                    <span class="text-[5.5px] text-slate-950 font-black mt-0.5 bg-lhu-gold px-1.5 py-0.2 rounded border border-white">Khối AI & Data</span>
+                  </div>
+
+                  <!-- Hex 3: FITWan (Liên kết: Khối Mạng & An Toàn Thông Tin - Sáng hơn) -->
+                  <div class="hex-item flex flex-col items-center">
+                    <div class="w-[66px] h-[74px] bg-gradient-to-b from-blue-400 via-blue-600 to-blue-950 p-[2px] hex-clip flex items-center justify-center shadow-md">
+                      <div class="w-full h-full bg-slate-900 hex-clip relative overflow-hidden group">
+                        <img 
+                          src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=250&q=80" 
+                          alt="FITWan Mạng & An toàn" 
+                          class="w-full h-full object-cover group-hover:scale-110 transition duration-500 opacity-60"
+                          onerror="this.src='https://placehold.co/200x200/013d88/ffffff?text=FITWan'"
+                        />
+                        <div class="absolute inset-0 bg-blue-950/80 flex flex-col items-center justify-center p-1 text-center">
+                          <i class="fa-solid fa-network-wired text-lhu-gold text-[10px] mb-0.5"></i>
+                          <span class="text-[7.5px] font-black text-white leading-none tracking-tight">FITWan</span>
+                          <span class="text-[5px] text-blue-200 mt-0.5 font-mono">Cloud & Sec</span>
+                        </div>
+                      </div>
+                    </div>
+                    <span class="text-[5.5px] text-white font-extrabold mt-0.5 bg-blue-700 px-1 py-0.2 rounded border border-blue-400">Khối Mạng/Cloud</span>
+                  </div>
+
+                </div>
+
+                <!-- HÀNG DƯỚI: 2 Ô LỤC GIÁC (Lồng vào khe zíc-zắc của hàng trên: IT English - Sáng Tạo Trẻ) -->
+                <div class="flex items-center justify-center gap-4 -mt-3.5">
+                  
+                  <!-- Hex 4: IT English (Liên kết: Chuẩn Đầu Ra Ngoại Ngữ IT Toàn Cầu) -->
+                  <div class="hex-item flex flex-col items-center">
+                    <div class="w-[64px] h-[72px] bg-gradient-to-b from-blue-300 via-lhu-blue to-blue-900 p-[2px] hex-clip flex items-center justify-center">
+                      <div class="w-full h-full bg-slate-900 hex-clip relative overflow-hidden group">
+                        <img 
+                          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=250&q=80" 
+                          alt="IT English Club" 
+                          class="w-full h-full object-cover group-hover:scale-110 transition duration-500 opacity-60"
+                          onerror="this.src='https://placehold.co/200x200/013d88/ffffff?text=English'"
+                        />
+                        <div class="absolute inset-0 bg-lhu-blueDark/80 flex flex-col items-center justify-center p-1 text-center">
+                          <i class="fa-solid fa-earth-americas text-lhu-gold text-[9.5px] mb-0.5"></i>
+                          <span class="text-[7px] font-black text-white leading-none">ENGLISH</span>
+                          <span class="text-[5px] text-blue-200 mt-0.5 font-mono">Global Comm</span>
+                        </div>
+                      </div>
+                    </div>
+                    <span class="text-[5.5px] text-white font-extrabold mt-0.5 bg-lhu-blue/90 px-1 py-0.2 rounded border border-blue-400/40">Chuẩn Ngoại ngữ</span>
+                  </div>
+
+                  <!-- Hex 5: CLB Sáng Tạo Trẻ (Liên kết: Đấu Trường ĐMST, VietFuture & NCKH) -->
+                  <div class="hex-item flex flex-col items-center">
+                    <div class="w-[64px] h-[72px] bg-gradient-to-b from-lhu-gold via-amber-500 to-blue-900 p-[2px] hex-clip flex items-center justify-center">
+                      <div class="w-full h-full bg-slate-900 hex-clip relative overflow-hidden group">
+                        <img 
+                          src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=250&q=80" 
+                          alt="CLB Sáng Tạo Trẻ" 
+                          class="w-full h-full object-cover group-hover:scale-110 transition duration-500 opacity-60"
+                          onerror="this.src='https://placehold.co/200x200/e0b341/ffffff?text=Sang+Tao'"
+                        />
+                        <div class="absolute inset-0 bg-lhu-blueDark/85 flex flex-col items-center justify-center p-1 text-center">
+                          <i class="fa-solid fa-lightbulb text-lhu-gold text-[9.5px] mb-0.5"></i>
+                          <span class="text-[7px] font-black text-white leading-none">SÁNG TẠO</span>
+                          <span class="text-[5px] text-amber-200 mt-0.5 font-mono">VietFuture Hub</span>
+                        </div>
+                      </div>
+                    </div>
+                    <span class="text-[5.5px] text-slate-950 font-black mt-0.5 bg-lhu-gold px-1 py-0.2 rounded border border-white">ĐMST & Startup</span>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <!-- Ghi chú chân khối tổ ong -->
+              <div class="mt-1 pt-1 border-t border-white/20 flex items-center justify-between text-[6.5px] text-blue-100 relative z-10">
+                <span class="flex items-center gap-1">
+                  <i class="fa-solid fa-link text-lhu-gold"></i> Liên kết học phần đồ án, NCKH & cọ sát đấu trường
+                </span>
+                <span class="text-amber-200 font-mono font-bold">[Thay đổi ảnh dễ dàng trên Canva]</span>
+              </div>
+            </div>
+
+            <!-- KHỐI 2: 4 TRỤ CỘT HƯỞNG THỤ TẠI LHU (CARD NỀN SÁNG CHUẨN) -->
+            <div class="space-y-1">
+              <!-- Cơ sở vật chất -->
+              <div class="p-1 rounded-xl bg-white border border-slate-200 shadow-2xs flex items-center gap-1.5">
+                <div class="w-5 h-5 rounded-lg bg-blue-50 text-lhu-blue flex items-center justify-center text-[9px] font-bold flex-shrink-0">
+                  <i class="fa-solid fa-server text-lhu-gold"></i>
+                </div>
+                <div class="leading-tight">
+                  <h4 class="text-[8px] font-bold text-slate-900">Innovation Lab & Thư viện số hiện đại 24/7</h4>
+                  <p class="text-[6.5px] text-slate-500">Phòng máy cấu hình cao, Cisco Networking Lab, Maker Space thông minh.</p>
+                </div>
+              </div>
+
+              <!-- Thể thao & Đoàn Hội -->
+              <div class="p-1 rounded-xl bg-white border border-slate-200 shadow-2xs flex items-center gap-1.5">
+                <div class="w-5 h-5 rounded-lg bg-lhu-goldLight text-slate-900 flex items-center justify-center text-[9px] font-bold flex-shrink-0 border border-lhu-gold/40">
+                  <i class="fa-solid fa-dumbbell text-lhu-gold"></i>
+                </div>
+                <div class="leading-tight">
+                  <h4 class="text-[8px] font-bold text-slate-900">Khu TDTT đa năng & Phong trào Đoàn - Hội rực rỡ</h4>
+                  <p class="text-[6.5px] text-slate-500">Sân bóng đá cỏ nhân tạo, Gym miễn phí, Chiến dịch Mùa hè xanh, văn nghệ.</p>
+                </div>
+              </div>
+
+              <!-- Kết nối đa ngành & Quốc tế -->
+              <div class="p-1 rounded-xl bg-white border border-slate-200 shadow-2xs flex items-center gap-1.5">
+                <div class="w-5 h-5 rounded-lg bg-blue-50 text-lhu-blue flex items-center justify-center text-[9px] font-bold flex-shrink-0 border border-blue-200">
+                  <i class="fa-solid fa-earth-americas text-lhu-gold"></i>
+                </div>
+                <div class="leading-tight">
+                  <h4 class="text-[8px] font-bold text-slate-900">Liên kết Đa ngành & Học kỳ Trao đổi Quốc tế</h4>
+                  <p class="text-[6.5px] text-slate-500">Phối hợp CNTT x Y Dược số x Smart Factory; Thực tập tại Nhật Bản, Đài Loan, Hàn Quốc.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Value Chips Bottom -->
+            <div class="flex items-center justify-between gap-1 text-[7px] font-bold text-slate-600 pt-1 border-t border-slate-200">
+              <span class="flex items-center gap-1 text-lhu-blue">
+                <i class="fa-solid fa-graduation-cap text-lhu-gold"></i> Trải nghiệm đại học hạnh phúc
+              </span>
+              <span class="bg-lhu-goldLight text-slate-900 px-1.5 py-0.2 rounded border border-lhu-gold font-bold">HỘI NHẬP TOÀN DIỆN</span>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="no-print mt-10 text-center text-xs text-slate-500">
+    Được thiết kế cho Khoa Công nghệ Thông tin - Trường Đại học Lạc Hồng &bull; Phong cách sáng sủa, thanh lịch, chuẩn nhận diện LHU (#013d88, #e0b341, #FFFFFF) &bull; Sẵn sàng in hoặc nhập vào Canva
+  </footer>
+
+</body>
+</html>
