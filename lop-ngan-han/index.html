@@ -287,7 +287,7 @@
 
       <!-- INSTITUTIONAL BRAND RECOGNITION BLOCK (MATCHING USER'S IMAGE - RESPONSIVE MOBILE FIRST) -->
       <a href="#"
-        class="inline-flex items-center gap-1.5 sm:gap-2.5 p-1 sm:p-1.5 pr-2 sm:pr-3 rounded-xl sm:rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-brand-400 transition-all flex-shrink min-w-0 max-w-[68%] sm:max-w-none group">
+        class="inline-flex items-center gap-1.5 sm:gap-2.5 p-1 sm:p-1.5 pr-2 sm:pr-3 rounded-xl sm:rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xs hover:border-brand-400 transition-all flex-shrink min-w-0 max-w-full sm:max-w-none group">
         <!-- Official Logo Container -->
         <div
           class="bg-white p-1 rounded-lg sm:rounded-xl shadow-xs border border-slate-100 flex-shrink-0 flex items-center">
@@ -324,8 +324,8 @@
         <a href="#cam-ket" class="whitespace-nowrap px-2.5 py-1.5 rounded-lg hover:text-brand-600 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-colors">Cam Kết Vàng</a>
       </nav>
 
-      <!-- Header Actions: Color Palette Selector + Dark/Light Mode Toggle + Mobile First CTA -->
-      <div class="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+      <!-- Header Actions: Color Palette Selector + Dark/Light Mode Toggle + CTA (Ẩn trên Mobile để không đè Logo & Tên trường) -->
+      <div class="hidden sm:flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
         <!-- Color Palette Dropdown Button -->
         <div class="relative" id="colorPaletteDropdownContainer">
           <button 
@@ -409,6 +409,28 @@
           <i class="fa-solid fa-bolt mr-1.5 text-accent-400"></i>
           <span class="sm:hidden">Đăng Ký</span>
           <span class="hidden sm:inline">Nhận Ưu Đãi</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Mobile Sticky Registration Bar (Chỉ hiển thị trên Mobile - Ngay dưới Header Brand) -->
+    <div
+      class="block sm:hidden border-t border-slate-200/80 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-3 py-2 shadow-xs transition-colors duration-200">
+      <div class="flex items-center justify-between gap-2">
+        <div class="flex items-center gap-1.5 min-w-0">
+          <span
+            class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-black bg-rose-100 dark:bg-rose-950/80 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-900/60 whitespace-nowrap">
+            <i class="fa-solid fa-fire mr-1 text-rose-600 animate-pulse"></i> GIẢM 40%
+          </span>
+          <span class="text-[11px] font-bold text-slate-600 dark:text-slate-300 truncate">
+            Còn 8 suất ưu đãi
+          </span>
+        </div>
+        <a href="#dang-ky"
+          class="inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-black text-white bg-gradient-to-r from-brand-600 to-accent-600 hover:from-brand-700 hover:to-accent-700 shadow-sm active:scale-95 transition flex-shrink-0 whitespace-nowrap">
+          <i class="fa-solid fa-bolt text-accent-300"></i>
+          <span>Đăng Ký Ngay</span>
+          <i class="fa-solid fa-chevron-right text-[10px]"></i>
         </a>
       </div>
     </div>
@@ -1182,63 +1204,74 @@
           <!-- Course Card 1: Pivot Table & Excel -->
           <div
             class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
-            <div class="p-7 sm:p-8">
-              <!-- Top Card Meta -->
-              <div class="flex items-center justify-between gap-2 mb-4 flex-wrap">
+            <!-- Card Image Banner -->
+            <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+                alt="Khóa 01: Phân Tích Số Liệu Với Pivot Table & Excel Nâng Cao"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/25 to-transparent"></div>
+              <!-- Floating badges on image -->
+              <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between gap-2 flex-wrap">
                 <span
-                  class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300">
-                  <i class="fa-solid fa-file-excel mr-1.5 text-emerald-600"></i> Khóa 01 &bull; Excel Nâng Cao
+                  class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/95 text-white backdrop-blur-md shadow-sm">
+                  <i class="fa-solid fa-file-excel mr-1.5"></i> Khóa 01 &bull; Excel Nâng Cao
                 </span>
-                <div class="flex items-center gap-1.5">
-                  <span
-                    class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-purple-100 dark:bg-purple-950/70 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60">
-                    <i class="fa-solid fa-wand-magic-sparkles text-amber-500"></i> AI Copilot
-                  </span>
-                  <span
-                    class="text-xs font-bold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-md">
-                    <i class="fa-regular fa-clock mr-1"></i> 2 buổi (8 tiết)
-                  </span>
-                </div>
+                <span
+                  class="text-xs font-bold text-white bg-slate-900/75 backdrop-blur-md px-2.5 py-1 rounded-full shadow-sm">
+                  <i class="fa-regular fa-clock mr-1"></i> 2 buổi (8 tiết)
+                </span>
               </div>
-
-              <!-- Course Title -->
-              <h3
-                class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition">
-                Phân Tích Số Liệu Với Pivot Table &amp; Excel Nâng Cao
-              </h3>
-
-              <!-- Course Pain & Benefit -->
-              <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base mt-3 leading-relaxed">
-                Làm chủ công cụ xử lý dữ liệu quốc dân, chuẩn hóa data thô, tạo báo cáo động và phân tích xu hướng doanh
-                thu trong <em>&ldquo;1 nốt nhạc&rdquo;</em> thay vì cặm cụi tính tay hàng giờ.
-              </p>
-
-              <!-- AI Application Highlight Box -->
-              <div
-                class="mt-4 p-3.5 rounded-xl bg-purple-50/80 dark:bg-purple-950/30 border border-purple-200/80 dark:border-purple-800/40 text-xs">
-                <span class="font-black text-purple-900 dark:text-purple-300 flex items-center gap-1.5 mb-1">
-                  <i class="fa-solid fa-robot text-purple-600 dark:text-purple-400 text-sm"></i> ỨNG DỤNG AI &amp;
-                  COPILOT THỰC CHIẾN:
+              <div class="absolute bottom-3 left-3.5">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-purple-600/90 text-white backdrop-blur-md shadow-md border border-purple-400/30">
+                  <i class="fa-solid fa-wand-magic-sparkles text-amber-300"></i> AI Copilot Thực Chiến
                 </span>
-                <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
-                  Sử dụng <strong>Microsoft Copilot &amp; ChatGPT</strong> để tự động viết công thức phức tạp (XLOOKUP,
-                  SUMIFS, VBA Macro) bằng câu lệnh tiếng Việt; tự động phát hiện lỗi và sinh báo cáo tổng hợp chỉ trong
-                  15 giây.
+              </div>
+            </div>
+
+            <div class="p-7 sm:p-8 flex-1 flex flex-col justify-between">
+              <div>
+                <!-- Course Title -->
+                <h3
+                  class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition">
+                  Phân Tích Số Liệu Với Pivot Table &amp; Excel Nâng Cao
+                </h3>
+
+                <!-- Course Pain & Benefit -->
+                <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base mt-3 leading-relaxed">
+                  Làm chủ công cụ xử lý dữ liệu quốc dân, chuẩn hóa data thô, tạo báo cáo động và phân tích xu hướng doanh
+                  thu trong <em>&ldquo;1 nốt nhạc&rdquo;</em> thay vì cặm cụi tính tay hàng giờ.
                 </p>
-              </div>
 
-              <!-- Modules Covered -->
-              <div
-                class="mt-5 pt-5 border-t border-slate-100 dark:border-slate-800 space-y-2.5 text-sm text-slate-700 dark:text-slate-300">
-                <div class="flex items-start gap-2.5">
-                  <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
-                  <span><strong>Buổi 1 (4 tiết):</strong> Chuẩn hóa dữ liệu lỗi thời, kỹ thuật Data Cleaning &amp; làm
-                    chủ Pivot Table từ cơ bản đến chuyên sâu kết hợp Prompting AI.</span>
+                <!-- AI Application Highlight Box -->
+                <div
+                  class="mt-4 p-3.5 rounded-xl bg-purple-50/80 dark:bg-purple-950/30 border border-purple-200/80 dark:border-purple-800/40 text-xs">
+                  <span class="font-black text-purple-900 dark:text-purple-300 flex items-center gap-1.5 mb-1">
+                    <i class="fa-solid fa-robot text-purple-600 dark:text-purple-400 text-sm"></i> ỨNG DỤNG AI &amp;
+                    COPILOT THỰC CHIẾN:
+                  </span>
+                  <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+                    Sử dụng <strong>Microsoft Copilot &amp; ChatGPT</strong> để tự động viết công thức phức tạp (XLOOKUP,
+                    SUMIFS, VBA Macro) bằng câu lệnh tiếng Việt; tự động phát hiện lỗi và sinh báo cáo tổng hợp chỉ trong
+                    15 giây.
+                  </p>
                 </div>
-                <div class="flex items-start gap-2.5">
-                  <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
-                  <span><strong>Buổi 2 (4 tiết):</strong> Tạo Slicer động, Calculated Field, kết hợp hàm logic nâng cao
-                    và thiết lập Báo cáo quản trị tự động nhảy số.</span>
+
+                <!-- Modules Covered -->
+                <div
+                  class="mt-5 pt-5 border-t border-slate-100 dark:border-slate-800 space-y-2.5 text-sm text-slate-700 dark:text-slate-300">
+                  <div class="flex items-start gap-2.5">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span><strong>Buổi 1 (4 tiết):</strong> Chuẩn hóa dữ liệu lỗi thời, kỹ thuật Data Cleaning &amp; làm
+                      chủ Pivot Table từ cơ bản đến chuyên sâu kết hợp Prompting AI.</span>
+                  </div>
+                  <div class="flex items-start gap-2.5">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span><strong>Buổi 2 (4 tiết):</strong> Tạo Slicer động, Calculated Field, kết hợp hàm logic nâng cao
+                      và thiết lập Báo cáo quản trị tự động nhảy số.</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1258,63 +1291,74 @@
           <!-- Course Card 2: Power BI -->
           <div
             class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
-            <div class="p-7 sm:p-8">
-              <!-- Top Card Meta -->
-              <div class="flex items-center justify-between gap-2 mb-4 flex-wrap">
+            <!-- Card Image Banner -->
+            <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
+              <img
+                src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=800&q=80"
+                alt="Khóa 02: Trực Quan Hóa Dữ Liệu Chuyên Nghiệp Với Power BI"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/25 to-transparent"></div>
+              <!-- Floating badges on image -->
+              <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between gap-2 flex-wrap">
                 <span
-                  class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-amber-100 dark:bg-amber-950/60 text-amber-900 dark:text-amber-300">
-                  <i class="fa-solid fa-chart-pie mr-1.5 text-amber-600"></i> Khóa 02 &bull; Business Intelligence
+                  class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-amber-500/95 text-white backdrop-blur-md shadow-sm">
+                  <i class="fa-solid fa-chart-pie mr-1.5"></i> Khóa 02 &bull; Business Intelligence
                 </span>
-                <div class="flex items-center gap-1.5">
-                  <span
-                    class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-purple-100 dark:bg-purple-950/70 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60">
-                    <i class="fa-solid fa-brain text-purple-500"></i> Copilot &amp; AI Visuals
-                  </span>
-                  <span
-                    class="text-xs font-bold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-md">
-                    <i class="fa-regular fa-clock mr-1"></i> 2 buổi (8 tiết)
-                  </span>
-                </div>
+                <span
+                  class="text-xs font-bold text-white bg-slate-900/75 backdrop-blur-md px-2.5 py-1 rounded-full shadow-sm">
+                  <i class="fa-regular fa-clock mr-1"></i> 2 buổi (8 tiết)
+                </span>
               </div>
-
-              <!-- Course Title -->
-              <h3
-                class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition">
-                Trực Quan Hóa Dữ Liệu Chuyên Nghiệp Với Power BI
-              </h3>
-
-              <!-- Course Pain & Benefit -->
-              <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base mt-3 leading-relaxed">
-                Biến số liệu khô khan thành Dashboard tương tác thông minh, kết nối đa nguồn dữ liệu (Excel, SQL, Google
-                Sheets), hỗ trợ ban lãnh đạo ra quyết định kinh doanh tức thì và chuẩn xác.
-              </p>
-
-              <!-- AI Application Highlight Box -->
-              <div
-                class="mt-4 p-3.5 rounded-xl bg-purple-50/80 dark:bg-purple-950/30 border border-purple-200/80 dark:border-purple-800/40 text-xs">
-                <span class="font-black text-purple-900 dark:text-purple-300 flex items-center gap-1.5 mb-1">
-                  <i class="fa-solid fa-brain text-purple-600 dark:text-purple-400 text-sm"></i> ỨNG DỤNG AI &amp;
-                  COPILOT THỰC CHIẾN:
+              <div class="absolute bottom-3 left-3.5">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-purple-600/90 text-white backdrop-blur-md shadow-md border border-purple-400/30">
+                  <i class="fa-solid fa-brain text-amber-300"></i> Copilot &amp; AI Visuals
                 </span>
-                <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
-                  Tích hợp <strong>Copilot for Power BI</strong> sinh Dashboard tự động từ dữ liệu thô; khai thác bộ
-                  công cụ AI Visuals (Smart Narrative diễn giải số liệu tự động bằng ngôn ngữ tự nhiên, Key Influencers
-                  và Q&amp;A thông minh).
+              </div>
+            </div>
+
+            <div class="p-7 sm:p-8 flex-1 flex flex-col justify-between">
+              <div>
+                <!-- Course Title -->
+                <h3
+                  class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition">
+                  Trực Quan Hóa Dữ Liệu Chuyên Nghiệp Với Power BI
+                </h3>
+
+                <!-- Course Pain & Benefit -->
+                <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base mt-3 leading-relaxed">
+                  Biến số liệu khô khan thành Dashboard tương tác thông minh, kết nối đa nguồn dữ liệu (Excel, SQL, Google
+                  Sheets), hỗ trợ ban lãnh đạo ra quyết định kinh doanh tức thì và chuẩn xác.
                 </p>
-              </div>
 
-              <!-- Modules Covered -->
-              <div
-                class="mt-5 pt-5 border-t border-slate-100 dark:border-slate-800 space-y-2.5 text-sm text-slate-700 dark:text-slate-300">
-                <div class="flex items-start gap-2.5">
-                  <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
-                  <span><strong>Buổi 1 (4 tiết):</strong> ETL dữ liệu với Power Query, xây dựng Data Model quan hệ và
-                    viết các hàm DAX phân tích cơ bản.</span>
+                <!-- AI Application Highlight Box -->
+                <div
+                  class="mt-4 p-3.5 rounded-xl bg-purple-50/80 dark:bg-purple-950/30 border border-purple-200/80 dark:border-purple-800/40 text-xs">
+                  <span class="font-black text-purple-900 dark:text-purple-300 flex items-center gap-1.5 mb-1">
+                    <i class="fa-solid fa-brain text-purple-600 dark:text-purple-400 text-sm"></i> ỨNG DỤNG AI &amp;
+                    COPILOT THỰC CHIẾN:
+                  </span>
+                  <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+                    Tích hợp <strong>Copilot for Power BI</strong> sinh Dashboard tự động từ dữ liệu thô; khai thác bộ
+                    công cụ AI Visuals (Smart Narrative diễn giải số liệu tự động bằng ngôn ngữ tự nhiên, Key Influencers
+                    và Q&amp;A thông minh).
+                  </p>
                 </div>
-                <div class="flex items-start gap-2.5">
-                  <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
-                  <span><strong>Buổi 2 (4 tiết):</strong> Thiết kế Interactive Executive Dashboard chuẩn UX trực quan,
-                    ứng dụng AI diễn giải dữ liệu và chia sẻ online.</span>
+
+                <!-- Modules Covered -->
+                <div
+                  class="mt-5 pt-5 border-t border-slate-100 dark:border-slate-800 space-y-2.5 text-sm text-slate-700 dark:text-slate-300">
+                  <div class="flex items-start gap-2.5">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span><strong>Buổi 1 (4 tiết):</strong> ETL dữ liệu với Power Query, xây dựng Data Model quan hệ và
+                      viết các hàm DAX phân tích cơ bản.</span>
+                  </div>
+                  <div class="flex items-start gap-2.5">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span><strong>Buổi 2 (4 tiết):</strong> Thiết kế Interactive Executive Dashboard chuẩn UX trực quan,
+                      ứng dụng AI diễn giải dữ liệu và chia sẻ online.</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1334,63 +1378,74 @@
           <!-- Course Card 3: Landing Page -->
           <div
             class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
-            <div class="p-7 sm:p-8">
-              <!-- Top Card Meta -->
-              <div class="flex items-center justify-between gap-2 mb-4 flex-wrap">
+            <!-- Card Image Banner -->
+            <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
+              <img
+                src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80"
+                alt="Khóa 03: Thiết Kế Landing Page Giới Thiệu Sản Phẩm Tối Ưu Chuyển Đổi"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/25 to-transparent"></div>
+              <!-- Floating badges on image -->
+              <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between gap-2 flex-wrap">
                 <span
-                  class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300">
-                  <i class="fa-solid fa-pager mr-1.5 text-purple-600"></i> Khóa 03 &bull; Digital Marketing
+                  class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-purple-600/95 text-white backdrop-blur-md shadow-sm">
+                  <i class="fa-solid fa-pager mr-1.5"></i> Khóa 03 &bull; Digital Marketing
                 </span>
-                <div class="flex items-center gap-1.5">
-                  <span
-                    class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-purple-100 dark:bg-purple-950/70 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60">
-                    <i class="fa-solid fa-wand-magic-sparkles text-amber-500"></i> GenAI Copy &amp; Design
-                  </span>
-                  <span
-                    class="text-xs font-bold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-md">
-                    <i class="fa-regular fa-clock mr-1"></i> 2 buổi (8 tiết)
-                  </span>
-                </div>
+                <span
+                  class="text-xs font-bold text-white bg-slate-900/75 backdrop-blur-md px-2.5 py-1 rounded-full shadow-sm">
+                  <i class="fa-regular fa-clock mr-1"></i> 2 buổi (8 tiết)
+                </span>
               </div>
-
-              <!-- Course Title -->
-              <h3
-                class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition">
-                Thiết Kế Landing Page Giới Thiệu Sản Phẩm Tối Ưu Chuyển Đổi
-              </h3>
-
-              <!-- Course Pain & Benefit -->
-              <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base mt-3 leading-relaxed">
-                Tự tay dựng trang bán hàng chuẩn UX/UI tối ưu tỷ lệ chuyển đổi (CRO) cao mà không cần biết lập trình
-                phức tạp. Tự chủ triển khai chiến dịch quảng cáo, bứt phá doanh số Marketing.
-              </p>
-
-              <!-- AI Application Highlight Box -->
-              <div
-                class="mt-4 p-3.5 rounded-xl bg-purple-50/80 dark:bg-purple-950/30 border border-purple-200/80 dark:border-purple-800/40 text-xs">
-                <span class="font-black text-purple-900 dark:text-purple-300 flex items-center gap-1.5 mb-1">
-                  <i class="fa-solid fa-wand-magic-sparkles text-purple-600 dark:text-purple-400 text-sm"></i> ỨNG DỤNG
-                  AI &amp; COPILOT THỰC CHIẾN:
+              <div class="absolute bottom-3 left-3.5">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-purple-600/90 text-white backdrop-blur-md shadow-md border border-purple-400/30">
+                  <i class="fa-solid fa-wand-magic-sparkles text-amber-300"></i> GenAI Copy &amp; Design
                 </span>
-                <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
-                  Làm chủ Prompt Engineering với <strong>ChatGPT &amp; Claude</strong> để tự động viết trọn bộ kịch bản
-                  bán hàng AIDA/PAS thôi miên, dùng Generative AI tạo hình ảnh sản phẩm chuẩn Studio và sinh khung
-                  Layout chuẩn CRO.
+              </div>
+            </div>
+
+            <div class="p-7 sm:p-8 flex-1 flex flex-col justify-between">
+              <div>
+                <!-- Course Title -->
+                <h3
+                  class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition">
+                  Thiết Kế Landing Page Giới Thiệu Sản Phẩm Tối Ưu Chuyển Đổi
+                </h3>
+
+                <!-- Course Pain & Benefit -->
+                <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base mt-3 leading-relaxed">
+                  Tự tay dựng trang bán hàng chuẩn UX/UI tối ưu tỷ lệ chuyển đổi (CRO) cao mà không cần biết lập trình
+                  phức tạp. Tự chủ triển khai chiến dịch quảng cáo, bứt phá doanh số Marketing.
                 </p>
-              </div>
 
-              <!-- Modules Covered -->
-              <div
-                class="mt-5 pt-5 border-t border-slate-100 dark:border-slate-800 space-y-2.5 text-sm text-slate-700 dark:text-slate-300">
-                <div class="flex items-start gap-2.5">
-                  <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
-                  <span><strong>Buổi 1 (4 tiết):</strong> Tạo Content AIDA với AI, cấu trúc bố cục Wireframe &amp; quy
-                    tắc phối màu chuẩn UX tâm lý học hành vi.</span>
+                <!-- AI Application Highlight Box -->
+                <div
+                  class="mt-4 p-3.5 rounded-xl bg-purple-50/80 dark:bg-purple-950/30 border border-purple-200/80 dark:border-purple-800/40 text-xs">
+                  <span class="font-black text-purple-900 dark:text-purple-300 flex items-center gap-1.5 mb-1">
+                    <i class="fa-solid fa-wand-magic-sparkles text-purple-600 dark:text-purple-400 text-sm"></i> ỨNG DỤNG
+                    AI &amp; COPILOT THỰC CHIẾN:
+                  </span>
+                  <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+                    Làm chủ Prompt Engineering với <strong>ChatGPT &amp; Claude</strong> để tự động viết trọn bộ kịch bản
+                    bán hàng AIDA/PAS thôi miên, dùng Generative AI tạo hình ảnh sản phẩm chuẩn Studio và sinh khung
+                    Layout chuẩn CRO.
+                  </p>
                 </div>
-                <div class="flex items-start gap-2.5">
-                  <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
-                  <span><strong>Buổi 2 (4 tiết):</strong> Dựng Landing Page hoàn chỉnh, tối ưu chuẩn Mobile, gắn Pixel
-                    &amp; Google Sheets tự động đồng bộ khách hàng.</span>
+
+                <!-- Modules Covered -->
+                <div
+                  class="mt-5 pt-5 border-t border-slate-100 dark:border-slate-800 space-y-2.5 text-sm text-slate-700 dark:text-slate-300">
+                  <div class="flex items-start gap-2.5">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span><strong>Buổi 1 (4 tiết):</strong> Tạo Content AIDA với AI, cấu trúc bố cục Wireframe &amp; quy
+                      tắc phối màu chuẩn UX tâm lý học hành vi.</span>
+                  </div>
+                  <div class="flex items-start gap-2.5">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span><strong>Buổi 2 (4 tiết):</strong> Dựng Landing Page hoàn chỉnh, tối ưu chuẩn Mobile, gắn Pixel
+                      &amp; Google Sheets tự động đồng bộ khách hàng.</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1410,63 +1465,74 @@
           <!-- Course Card 4: Quản trị dữ liệu -->
           <div
             class="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group">
-            <div class="p-7 sm:p-8">
-              <!-- Top Card Meta -->
-              <div class="flex items-center justify-between gap-2 mb-4 flex-wrap">
+            <!-- Card Image Banner -->
+            <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
+              <img
+                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80"
+                alt="Khóa 04: Tổ Chức & Quản Trị Dữ Liệu Doanh Nghiệp Hiệu Quả"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/25 to-transparent"></div>
+              <!-- Floating badges on image -->
+              <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between gap-2 flex-wrap">
                 <span
-                  class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-blue-100 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300">
-                  <i class="fa-solid fa-database mr-1.5 text-blue-600"></i> Khóa 04 &bull; Vận Hành &amp; Quản Trị
+                  class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-blue-600/95 text-white backdrop-blur-md shadow-sm">
+                  <i class="fa-solid fa-database mr-1.5"></i> Khóa 04 &bull; Vận Hành &amp; Quản Trị
                 </span>
-                <div class="flex items-center gap-1.5">
-                  <span
-                    class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-purple-100 dark:bg-purple-950/70 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/60">
-                    <i class="fa-solid fa-network-wired text-purple-500"></i> AI-Ready Data
-                  </span>
-                  <span
-                    class="text-xs font-bold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-md">
-                    <i class="fa-regular fa-clock mr-1"></i> 2 buổi (8 tiết)
-                  </span>
-                </div>
+                <span
+                  class="text-xs font-bold text-white bg-slate-900/75 backdrop-blur-md px-2.5 py-1 rounded-full shadow-sm">
+                  <i class="fa-regular fa-clock mr-1"></i> 2 buổi (8 tiết)
+                </span>
               </div>
-
-              <!-- Course Title -->
-              <h3
-                class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition">
-                Tổ Chức &amp; Quản Trị Dữ Liệu Doanh Nghiệp Hiệu Quả
-              </h3>
-
-              <!-- Course Pain & Benefit -->
-              <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base mt-3 leading-relaxed">
-                Xây dựng tư duy phân luồng, lưu trữ, bảo mật và chuẩn hóa hệ thống dữ liệu nội bộ. Giúp doanh nghiệp
-                chấm dứt tình trạng thất thoát tài nguyên và vận hành trơn tru giữa các phòng ban.
-              </p>
-
-              <!-- AI Application Highlight Box -->
-              <div
-                class="mt-4 p-3.5 rounded-xl bg-purple-50/80 dark:bg-purple-950/30 border border-purple-200/80 dark:border-purple-800/40 text-xs">
-                <span class="font-black text-purple-900 dark:text-purple-300 flex items-center gap-1.5 mb-1">
-                  <i class="fa-solid fa-shield-halved text-purple-600 dark:text-purple-400 text-sm"></i> ỨNG DỤNG AI
-                  &amp; COPILOT THỰC CHIẾN:
+              <div class="absolute bottom-3 left-3.5">
+                <span
+                  class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold bg-purple-600/90 text-white backdrop-blur-md shadow-md border border-purple-400/30">
+                  <i class="fa-solid fa-network-wired text-cyan-300"></i> AI-Ready Data System
                 </span>
-                <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
-                  Thiết lập kiến trúc dữ liệu chuẩn <strong>AI-Ready</strong>, phân quyền bảo mật dữ liệu nhạy cảm không
-                  bị rò rỉ khi nhân viên sử dụng các công cụ AI công cộng, và chuẩn hóa luồng nạp dữ liệu sạch cho AI
-                  nội bộ.
+              </div>
+            </div>
+
+            <div class="p-7 sm:p-8 flex-1 flex flex-col justify-between">
+              <div>
+                <!-- Course Title -->
+                <h3
+                  class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition">
+                  Tổ Chức &amp; Quản Trị Dữ Liệu Doanh Nghiệp Hiệu Quả
+                </h3>
+
+                <!-- Course Pain & Benefit -->
+                <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base mt-3 leading-relaxed">
+                  Xây dựng tư duy phân luồng, lưu trữ, bảo mật và chuẩn hóa hệ thống dữ liệu nội bộ. Giúp doanh nghiệp
+                  chấm dứt tình trạng thất thoát tài nguyên và vận hành trơn tru giữa các phòng ban.
                 </p>
-              </div>
 
-              <!-- Modules Covered -->
-              <div
-                class="mt-5 pt-5 border-t border-slate-100 dark:border-slate-800 space-y-2.5 text-sm text-slate-700 dark:text-slate-300">
-                <div class="flex items-start gap-2.5">
-                  <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
-                  <span><strong>Buổi 1 (4 tiết):</strong> Kiến trúc lưu trữ dữ liệu (Data Architecture), quy tắc đặt
-                    tên, phân quyền bảo mật và chống rò rỉ dữ liệu khi ứng dụng AI.</span>
+                <!-- AI Application Highlight Box -->
+                <div
+                  class="mt-4 p-3.5 rounded-xl bg-purple-50/80 dark:bg-purple-950/30 border border-purple-200/80 dark:border-purple-800/40 text-xs">
+                  <span class="font-black text-purple-900 dark:text-purple-300 flex items-center gap-1.5 mb-1">
+                    <i class="fa-solid fa-shield-halved text-purple-600 dark:text-purple-400 text-sm"></i> ỨNG DỤNG AI
+                    &amp; COPILOT THỰC CHIẾN:
+                  </span>
+                  <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
+                    Thiết lập kiến trúc dữ liệu chuẩn <strong>AI-Ready</strong>, phân quyền bảo mật dữ liệu nhạy cảm không
+                    bị rò rỉ khi nhân viên sử dụng các công cụ AI công cộng, và chuẩn hóa luồng nạp dữ liệu sạch cho AI
+                    nội bộ.
+                  </p>
                 </div>
-                <div class="flex items-start gap-2.5">
-                  <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
-                  <span><strong>Buổi 2 (4 tiết):</strong> Xây dựng luồng tự động hóa cập nhật dữ liệu (Automation
-                    Workflow) và SOP chuẩn hóa dữ liệu thực tế cho doanh nghiệp.</span>
+
+                <!-- Modules Covered -->
+                <div
+                  class="mt-5 pt-5 border-t border-slate-100 dark:border-slate-800 space-y-2.5 text-sm text-slate-700 dark:text-slate-300">
+                  <div class="flex items-start gap-2.5">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span><strong>Buổi 1 (4 tiết):</strong> Kiến trúc lưu trữ dữ liệu (Data Architecture), quy tắc đặt
+                      tên, phân quyền bảo mật và chống rò rỉ dữ liệu khi ứng dụng AI.</span>
+                  </div>
+                  <div class="flex items-start gap-2.5">
+                    <i class="fa-solid fa-check text-emerald-500 mt-1"></i>
+                    <span><strong>Buổi 2 (4 tiết):</strong> Xây dựng luồng tự động hóa cập nhật dữ liệu (Automation
+                      Workflow) và SOP chuẩn hóa dữ liệu thực tế cho doanh nghiệp.</span>
+                  </div>
                 </div>
               </div>
             </div>
