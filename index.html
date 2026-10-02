@@ -48,8 +48,10 @@
     .a4-landscape {
       width: 297mm;
       height: 210mm;
+      max-height: 210mm;
       min-width: 297mm;
       min-height: 210mm;
+      grid-template-rows: 210mm;
     }
 
     /* Mạng lưới hạt công nghệ sáng sủa */
@@ -72,18 +74,57 @@
       clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     }
 
+    /* ========================================================
+       TỐI ƯU HÓA ĐỘ RÕ NÉT CỦA FONT CHỮ CHO HIỂN THỊ VÀ IN ẤN
+       ======================================================== */
+    .text-\[4\.5px\], .text-\[4\.8px\] { font-size: 6px !important; }
+    .text-\[5px\] { font-size: 6.5px !important; font-weight: 600 !important; }
+    .text-\[5\.5px\], .text-\[5\.8px\] { font-size: 7px !important; }
+    .text-\[6px\], .text-\[6\.1px\], .text-\[6\.3px\] { font-size: 7.5px !important; }
+    .text-\[6\.5px\], .text-\[6\.8px\] { font-size: 8px !important; }
+    .text-\[7px\], .text-\[7\.2px\] { font-size: 8.5px !important; }
+    .text-\[7\.5px\], .text-\[7\.8px\] { font-size: 9px !important; }
+    .text-\[8px\] { font-size: 9.5px !important; }
+    .text-\[8\.5px\] { font-size: 10px !important; }
+    .text-\[9px\], .text-\[9\.5px\] { font-size: 10.5px !important; }
+    .text-\[10px\], .text-\[10\.5px\] { font-size: 11.5px !important; }
+
+    /* Nâng nét chữ khi in ấn và hiển thị */
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
     @media print {
       body {
         background: transparent !important;
         padding: 0 !important;
+        margin: 0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
       .no-print {
         display: none !important;
       }
+      .space-y-12 {
+        margin: 0 !important;
+        gap: 0 !important;
+      }
+      .space-y-12 > * + * {
+        margin-top: 0 !important;
+      }
       .a4-landscape {
         box-shadow: none !important;
         margin: 0 !important;
-        page-break-after: always;
+        border: none !important;
+        page-break-after: always !important;
+        page-break-inside: avoid !important;
+        height: 210mm !important;
+        max-height: 210mm !important;
+      }
+      .a4-landscape:last-of-type, .a4-landscape:last-child {
+        page-break-after: avoid !important;
       }
       @page {
         size: A4 landscape;
@@ -96,8 +137,8 @@
 
   <header class="no-print w-full max-w-[297mm] mb-6 flex flex-wrap items-center justify-between bg-slate-800/90 backdrop-blur-md border border-slate-700 p-4 rounded-xl shadow-xl">
     <div class="flex items-center gap-3">
-      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-lhu-blue to-lhu-gold flex items-center justify-center text-white font-black text-lg shadow-md border border-lhu-gold/40">
-        LHU
+      <div class="bg-white px-3 py-1 rounded-xl shadow-md border border-lhu-gold/50 flex items-center">
+        <img src="LHU_ASU_VI_Small_Ngang.png" alt="Logo LHU ASU" class="h-8 w-auto object-contain">
       </div>
       <div>
         <h1 class="text-white font-bold text-base flex items-center gap-2">
@@ -561,7 +602,7 @@
             </div>
 
             <!-- KHUNG ẢNH ĐA TẦNG 2: Campus LHU (Fill trọn vẹn theo chiều cao) -->
-            <div class="organic-layer-base my-1 flex-1 h-full min-h-[140px] flex items-stretch justify-center relative">
+            <div class="organic-layer-base my-1 flex-1 h-full min-h-[100px] flex items-stretch justify-center relative">
               <div class="absolute -inset-1 bg-gradient-to-br from-blue-100 via-lhu-goldLight to-blue-50 rounded-2xl transform rotate-1 -z-20 border border-blue-100"></div>
               
               <div class="w-full h-full rounded-2xl overflow-hidden shadow-lhu-soft relative border border-blue-200/80 group">
@@ -614,16 +655,8 @@
           <!-- Top Brand & Khung Đặt Logo Chuẩn LHU (Được mở rộng chiếm tối đa bề ngang) -->
           <div class="relative z-10">
             <div class="flex items-center justify-between gap-2 mb-1.5">
-              <div class="flex-1 flex items-center gap-2.5 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-2xl border border-lhu-gold/50 shadow-lg min-w-0">
-                <div class="w-12 h-10 rounded-xl bg-lhu-blueLight border-2 border-dashed border-lhu-blue/70 flex flex-col items-center justify-center text-lhu-blue flex-shrink-0">
-                  <i class="fa-solid fa-cloud-arrow-up text-xs text-lhu-goldDark"></i>
-                  <span class="text-[5.5px] font-black uppercase text-lhu-blue tracking-tighter">LOGO LHU</span>
-                </div>
-                <div class="leading-tight flex-1 min-w-0">
-                  <div class="text-[10.5px] font-black text-lhu-blue uppercase tracking-tight truncate">TRƯỜNG ĐẠI HỌC LẠC HỒNG</div>
-                  <div class="text-[8.5px] font-bold text-slate-700 uppercase tracking-wider truncate">KHOA CÔNG NGHỆ THÔNG TIN</div>
-                  <span class="text-[6px] text-slate-400 block">[Khu vực đặt Logo chính thức]</span>
-                </div>
+              <div class="flex-1 bg-white p-[5px] rounded-xl flex items-center justify-start shadow-sm min-w-0">
+                <img src="LHU_ASU_VI_Small_Ngang.png" alt="Logo Đại Học Lạc Hồng" class="h-11 w-auto object-contain">
               </div>
 
               <!-- Badges Hợp Tác ASU (Gọn gàng bên phải) -->
@@ -851,7 +884,7 @@
                     </div>
                   </div>
                   <!-- Hình ảnh nằm DƯỚI content và chiếm trọn không gian trống -->
-                  <div class="relative flex-1 w-full min-h-[40px] mt-1 rounded-md overflow-hidden border border-blue-200 shadow-2xs group">
+                  <div class="relative flex-1 w-full h-[25px] mt-0.5 rounded-md overflow-hidden border border-blue-200 shadow-2xs group">
                     <img 
                       src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=400&q=80" 
                       alt="AI Software Engineering" 
@@ -884,7 +917,7 @@
                     </div>
                   </div>
                   <!-- Hình ảnh nằm DƯỚI content và chiếm trọn không gian trống -->
-                  <div class="relative flex-1 w-full min-h-[40px] mt-1 rounded-md overflow-hidden border border-lhu-gold/50 shadow-2xs group">
+                  <div class="relative flex-1 w-full h-[25px] mt-0.5 rounded-md overflow-hidden border border-lhu-gold/50 shadow-2xs group">
                     <img 
                       src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80" 
                       alt="AI & Data Engineering" 
@@ -917,7 +950,7 @@
                     </div>
                   </div>
                   <!-- Hình ảnh nằm DƯỚI content và chiếm trọn không gian trống -->
-                  <div class="relative flex-1 w-full min-h-[40px] mt-1 rounded-md overflow-hidden border border-blue-200 shadow-2xs group">
+                  <div class="relative flex-1 w-full h-[25px] mt-0.5 rounded-md overflow-hidden border border-blue-200 shadow-2xs group">
                     <img 
                       src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=400&q=80" 
                       alt="AI Cyber Security" 
@@ -950,7 +983,7 @@
                     </div>
                   </div>
                   <!-- Hình ảnh nằm DƯỚI content và chiếm trọn không gian trống -->
-                  <div class="relative flex-1 w-full min-h-[40px] mt-1 rounded-md overflow-hidden border border-blue-200 shadow-2xs group">
+                  <div class="relative flex-1 w-full h-[25px] mt-0.5 rounded-md overflow-hidden border border-blue-200 shadow-2xs group">
                     <img 
                       src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=400&q=80" 
                       alt="Cloud Native Microservices" 
@@ -989,7 +1022,7 @@
                   </div>
                 </div>
                 <!-- Hình ảnh nằm DƯỚI content và chiếm trọn không gian trống -->
-                <div class="relative w-full h-[32px] mt-1 rounded-md overflow-hidden border border-lhu-gold/50 shadow-2xs group">
+                <div class="relative w-full h-[24px] mt-0.5 rounded-md overflow-hidden border border-lhu-gold/50 shadow-2xs group">
                   <img 
                     src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80" 
                     alt="Product Mindset & UX" 
@@ -1393,7 +1426,7 @@
             </div>
 
             <!-- LAYOUT LƯỚI 2 CỘT 2 DÒNG: 4 KHUNG ẢNH ĐA TẦNG ĐẶC QUYỀN SÁNG SỦA (CHIẾM ~1/2 TRANG) -->
-            <div class="my-1 grid grid-cols-2 gap-1.5 h-[168px]">
+            <div class="my-1 grid grid-cols-2 gap-1.5 h-[100px]">
               
               <!-- Ô 1: Cơ sở vật chất & Innovation Lab -->
               <div class="organic-layer-base relative rounded-xl overflow-hidden border border-blue-200 shadow-2xs group flex flex-col">
