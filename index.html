@@ -48,8 +48,11 @@
     .a4-landscape {
       width: 297mm;
       height: 210mm;
+      max-height: 210mm;
       min-width: 297mm;
       min-height: 210mm;
+      grid-template-rows: 200mm;
+      padding:10px;
     }
 
     /* Mạng lưới hạt công nghệ sáng sủa */
@@ -72,22 +75,80 @@
       clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     }
 
+    
+    /* ========================================================
+       TẤT CẢ TIÊU ĐỀ (TITLES) VÀ HUY HIỆU (BADGES) TRÊN 1 DÒNG
+       ======================================================== */
+    h1, h2, h3, h4 {
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+    }
+
+    /* Đảm bảo chữ bên trong các huy hiệu badge luôn nằm trên 1 dòng */
+    span[class*="rounded"], div[class*="rounded"] > span, [class*="badge"] {
+      white-space: nowrap;
+    }
+
+    /* ========================================================
+       TỐI ƯU HÓA ĐỘ RÕ NÉT CỦA FONT CHỮ CHO HIỂN THỊ VÀ IN ẤN
+       ======================================================== */
+    .text-\[4\.5px\], .text-\[4\.8px\] { font-size: 6px !important; }
+    .text-\[5px\] { font-size: 6.5px !important; font-weight: 600 !important; }
+    .text-\[5\.5px\], .text-\[5\.8px\] { font-size: 7px !important; }
+    .text-\[6px\], .text-\[6\.1px\], .text-\[6\.3px\] { font-size: 7.5px !important; }
+    .text-\[6\.5px\], .text-\[6\.8px\] { font-size: 8px !important; }
+    .text-\[7px\], .text-\[7\.2px\] { font-size: 8.5px !important; }
+    .text-\[7\.5px\], .text-\[7\.8px\] { font-size: 9px !important; }
+    .text-\[8px\] { font-size: 9.5px !important; }
+    .text-\[8\.5px\] { font-size: 10px !important; }
+    .text-\[9px\], .text-\[9\.5px\] { font-size: 10.5px !important; }
+    .text-\[10px\], .text-\[10\.5px\] { font-size: 11.5px !important; }
+
+    /* Nâng nét chữ khi in ấn và hiển thị */
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
     @media print {
+      @page {
+        size: A4 landscape;
+        margin: 5mm;
+      }
       body {
         background: transparent !important;
         padding: 0 !important;
+        margin: 0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
       .no-print {
         display: none !important;
       }
+      .space-y-12 {
+        margin: 0 !important;
+        gap: 0 !important;
+      }
+      .space-y-12 > * + * {
+        margin-top: 0 !important;
+      }
       .a4-landscape {
         box-shadow: none !important;
-        margin: 0 !important;
-        page-break-after: always;
+        margin: 0 auto !important;
+        border: none !important;
+        page-break-after: always !important;
+        page-break-inside: avoid !important;
+        width: 287mm !important;
+        height: 200mm !important;
+        max-height: 200mm !important;
+        min-width: 287mm !important;
+        min-height: 200mm !important;
+        grid-template-rows: 200mm !important;
       }
-      @page {
-        size: A4 landscape;
-        margin: 0;
+      .a4-landscape:last-of-type, .a4-landscape:last-child {
+        page-break-after: avoid !important;
       }
     }
   </style>
@@ -96,11 +157,11 @@
 
   <header class="no-print w-full max-w-[297mm] mb-6 flex flex-wrap items-center justify-between bg-slate-800/90 backdrop-blur-md border border-slate-700 p-4 rounded-xl shadow-xl">
     <div class="flex items-center gap-3">
-      <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-lhu-blue to-lhu-gold flex items-center justify-center text-white font-black text-lg shadow-md border border-lhu-gold/40">
-        LHU
+      <div class="bg-white px-3 py-1 rounded-xl shadow-md border border-lhu-gold/50 flex items-center">
+        <img src="LHU_ASU_VI_Small_Ngang.png" alt="Logo LHU ASU" class="h-8 w-auto object-contain">
       </div>
       <div>
-        <h1 class="text-white font-bold text-base flex items-center gap-2">
+        <h1 class="text-white font-bold text-base flex flex-wrap sm:flex-nowrap items-center gap-2 whitespace-nowrap">
           Brochure Trifold CNTT Lạc Hồng • Phong Cách Sáng Sủa & Bắt Mắt
           <span class="text-[10px] bg-gradient-to-r from-lhu-gold to-amber-400 text-slate-950 px-2 py-0.5 rounded-full uppercase font-mono font-bold">LHU Brand • Light & Bright Mode</span>
         </h1>
@@ -167,11 +228,11 @@
               </div>
 
               <!-- Badges nổi phá khung phong cách LHU -->
-              <div class="absolute -bottom-1.5 -left-1 bg-white px-2 py-0.5 rounded-md border border-lhu-gold shadow-sm flex items-center gap-1 z-20">
+              <div class="absolute bottom-1 left-1 bg-white px-2 py-0.5 rounded-md border border-lhu-gold shadow-sm flex items-center gap-1 z-20">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                 <span class="text-[6.5px] font-black text-lhu-blue">100% Việc làm chuẩn đầu ra</span>
               </div>
-              <div class="absolute -top-1.5 -right-1 bg-lhu-blue text-white px-2 py-0.5 rounded-md text-[6.5px] font-bold z-20 border border-lhu-gold shadow-sm">
+              <div class="absolute top-1 right-1 bg-lhu-blue text-white px-2 py-0.5 rounded-md text-[6.5px] font-bold z-20 border border-lhu-gold shadow-sm">
                 <i class="fa-solid fa-globe text-lhu-gold mr-0.5"></i> Global Mobility
               </div>
             </div>
@@ -198,7 +259,7 @@
                         <i class="fa-solid fa-code text-[7px] text-lhu-gold flex-shrink-0"></i>
                         <span>Công nghệ Phần mềm</span>
                       </div>
-                      <div class="mt-0.5 mb-0.5 flex flex-wrap gap-0.5">
+                      <div class="mt-0.5 mb-0.5 flex items-center gap-0.5 whitespace-nowrap">
                         <span class="text-[5.5px] bg-white text-lhu-blue px-1 py-0.2 rounded font-mono inline-block border border-blue-200 font-bold">Front-End</span>
                         <span class="text-[5.5px] bg-white text-lhu-blue px-1 py-0.2 rounded font-mono inline-block border border-blue-200 font-bold">Back-End</span>
                         <span class="text-[5.5px] bg-white text-lhu-blue px-1 py-0.2 rounded font-mono inline-block border border-blue-200 font-bold">Mobile APP</span>
@@ -288,7 +349,7 @@
                 <div class="flex items-center gap-1.5 text-[8px] font-black text-lhu-blue uppercase tracking-wider">
                   <i class="fa-solid fa-user-tie text-lhu-gold"></i> Vị trí việc làm sau tốt nghiệp
                 </div>
-                <span class="text-[6px] text-lhu-blue font-extrabold bg-blue-50 px-1.5 py-0.2 rounded border border-blue-200">
+                <span class="text-[5.5px] text-lhu-blue font-extrabold bg-blue-50 px-1 py-0.2 rounded border border-blue-200 whitespace-nowrap flex-shrink-0">
                   Thu nhập khởi điểm hấp dẫn
                 </span>
               </div>
@@ -340,7 +401,7 @@
                   <i class="fa-solid fa-handshake-angle text-lhu-blue text-[8px]"></i>
                   <span class="text-[7.5px] uppercase font-black text-lhu-blue tracking-wider">500+ Doanh nghiệp đối tác tuyển dụng</span>
                 </div>
-                <span class="text-[6px] text-lhu-blue font-extrabold bg-blue-50 px-1 py-0.2 rounded border border-blue-200">
+                <span class="text-[5.5px] text-lhu-blue font-extrabold bg-blue-50 px-1 py-0.2 rounded border border-blue-200 whitespace-nowrap flex-shrink-0">
                   <i class="fa-solid fa-circle-check text-emerald-500 text-[6px]"></i> Cam kết việc làm
                 </span>
               </div>
@@ -543,8 +604,8 @@
                 </div>
 
                 <!-- Badges đặc trưng đào tạo kỹ sư CNTT LHU -->
-                <div class="mt-1 pt-1 border-t border-blue-200/60 flex flex-wrap items-center gap-1">
-                  <span class="bg-lhu-blue text-lhu-gold text-[5.5px] font-black px-1.5 py-0.2 rounded flex items-center gap-0.5 border border-lhu-gold/40">
+                <div class="mt-1 pt-1 border-t border-blue-200/60 flex items-center justify-between gap-0.5 whitespace-nowrap overflow-hidden">
+                  <span class="bg-lhu-blue text-lhu-gold text-[5px] font-black px-1 py-0.2 rounded flex items-center gap-0.5 border border-lhu-gold/40 whitespace-nowrap flex-shrink-0">
                     <i class="fa-solid fa-award text-[5.5px]"></i> KỸ SƯ &ge;150 TÍN CHỈ
                   </span>
                   <span class="bg-white text-slate-800 text-[5.5px] font-bold px-1 py-0.2 rounded border border-slate-300">
@@ -561,7 +622,7 @@
             </div>
 
             <!-- KHUNG ẢNH ĐA TẦNG 2: Campus LHU (Fill trọn vẹn theo chiều cao) -->
-            <div class="organic-layer-base my-1 flex-1 h-full min-h-[140px] flex items-stretch justify-center relative">
+            <div class="organic-layer-base my-1 flex-1 h-full min-h-[100px] flex items-stretch justify-center relative">
               <div class="absolute -inset-1 bg-gradient-to-br from-blue-100 via-lhu-goldLight to-blue-50 rounded-2xl transform rotate-1 -z-20 border border-blue-100"></div>
               
               <div class="w-full h-full rounded-2xl overflow-hidden shadow-lhu-soft relative border border-blue-200/80 group">
@@ -581,10 +642,10 @@
               </div>
 
               <!-- Campus Feature Badges -->
-              <div class="absolute -top-2 -right-1 bg-lhu-gold text-slate-950 font-black text-[7.5px] px-2 py-0.5 rounded-full shadow-md z-20 border border-white">
+              <div class="absolute top-1 right-1 bg-lhu-gold text-slate-950 font-black text-[7.5px] px-2 py-0.5 rounded-full shadow-md z-20 border border-white">
                 CAMPUS BỬU LONG
               </div>
-              <div class="absolute -bottom-1.5 -left-1 bg-white text-lhu-blue font-black text-[7.5px] px-2 py-0.5 rounded-lg border border-slate-200 shadow-md flex items-center gap-1 z-20">
+              <div class="absolute bottom-1 left-1 bg-white text-lhu-blue font-black text-[7.5px] px-2 py-0.5 rounded-lg border border-slate-200 shadow-md flex items-center gap-1 z-20">
                 <i class="fa-solid fa-wifi text-emerald-600"></i> Smart Campus 100%
               </div>
             </div>
@@ -608,22 +669,14 @@
         <!-- CỘT 3 (Trang 1): BÌA TRƯỚC (SANG TRỌNG • SÁNG RỰC RỠ CHUẨN LHU ROYAL BLUE & GOLD) -->
         <section class="h-full p-3.5 flex flex-col justify-between bg-gradient-to-br from-lhu-blue via-blue-700 to-lhu-blueDark text-white relative overflow-hidden">
           <div class="absolute -right-16 -top-16 w-56 h-56 bg-lhu-gold/25 rounded-full blur-3xl pointer-events-none"></div>
-          <div class="absolute -left-16 -bottom-16 w-56 h-56 bg-blue-400/20 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="absolute -left-16 bottom-0 w-56 h-56 bg-blue-400/20 rounded-full blur-3xl pointer-events-none"></div>
           <div class="absolute top-1/2 right-0 w-32 h-32 lhu-pattern-gold opacity-20 pointer-events-none"></div>
 
           <!-- Top Brand & Khung Đặt Logo Chuẩn LHU (Được mở rộng chiếm tối đa bề ngang) -->
           <div class="relative z-10">
             <div class="flex items-center justify-between gap-2 mb-1.5">
-              <div class="flex-1 flex items-center gap-2.5 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-2xl border border-lhu-gold/50 shadow-lg min-w-0">
-                <div class="w-12 h-10 rounded-xl bg-lhu-blueLight border-2 border-dashed border-lhu-blue/70 flex flex-col items-center justify-center text-lhu-blue flex-shrink-0">
-                  <i class="fa-solid fa-cloud-arrow-up text-xs text-lhu-goldDark"></i>
-                  <span class="text-[5.5px] font-black uppercase text-lhu-blue tracking-tighter">LOGO LHU</span>
-                </div>
-                <div class="leading-tight flex-1 min-w-0">
-                  <div class="text-[10.5px] font-black text-lhu-blue uppercase tracking-tight truncate">TRƯỜNG ĐẠI HỌC LẠC HỒNG</div>
-                  <div class="text-[8.5px] font-bold text-slate-700 uppercase tracking-wider truncate">KHOA CÔNG NGHỆ THÔNG TIN</div>
-                  <span class="text-[6px] text-slate-400 block">[Khu vực đặt Logo chính thức]</span>
-                </div>
+              <div class="flex-1 bg-white p-[5px] rounded-xl flex items-center justify-start shadow-sm min-w-0">
+                <img src="LHU_ASU_VI_Small_Ngang.png" alt="Logo Đại Học Lạc Hồng" class="h-11 w-auto object-contain">
               </div>
 
               <!-- Badges Hợp Tác ASU (Gọn gàng bên phải) -->
@@ -640,14 +693,14 @@
             <!-- Title & Hệ đào tạo đầy đủ -->
             <div class="mt-0.5">
               <!-- Hàng Badges Kiểm Định Quốc Tế (Đã bỏ badge AI-FIRST CURRICULUM) -->
-              <div class="flex flex-wrap items-center gap-1 mb-0.5">
-                <span class="bg-white/20 backdrop-blur-sm border border-white/30 text-white text-[7px] font-bold px-1.5 py-0.5 rounded-full">
+              <div class="flex items-center justify-between gap-0.5 mb-0.5 whitespace-nowrap">
+                <span class="bg-white/20 backdrop-blur-sm border border-white/30 text-white text-[6px] font-bold px-1 py-0.2 rounded-full whitespace-nowrap flex-shrink-0">
                   CHUẨN QUỐC TẾ
                 </span>
-                <span class="inline-block bg-gradient-to-r from-lhu-gold to-amber-400 text-slate-950 text-[7px] font-black px-1.5 py-0.5 rounded-full shadow-sm border border-white whitespace-nowrap">
+                <span class="inline-block bg-gradient-to-r from-lhu-gold to-amber-400 text-slate-950 text-[6px] font-black px-1 py-0.2 rounded-full shadow-sm border border-white whitespace-nowrap flex-shrink-0">
                   <i class="fa-solid fa-circle-check mr-0.5 text-lhu-blue"></i> ĐẠT CHUẨN ABET (HOA KỲ)
                 </span>
-                <span class="inline-block bg-white/15 backdrop-blur-md border border-white/30 text-[7px] font-bold px-1.5 py-0.5 rounded-full text-amber-200 whitespace-nowrap">
+                <span class="inline-block bg-white/15 backdrop-blur-md border border-white/30 text-[6px] font-bold px-1 py-0.2 rounded-full text-amber-200 whitespace-nowrap flex-shrink-0">
                   <i class="fa-solid fa-award mr-0.5 text-lhu-gold"></i> ĐẠT CHUẨN AUN-QA
                 </span>
               </div>
@@ -664,23 +717,23 @@
               </h1>
 
               <!-- Dải Badges Hệ & Bậc đào tạo đa tầng -->
-              <div class="flex flex-wrap items-center gap-1 mt-1 mb-0.5">
-                <span class="bg-white text-lhu-blue font-black text-[6.5px] px-1.5 py-0.2 rounded-md shadow-2xs whitespace-nowrap">
-                  Hệ Đại học
+              <div class="flex items-center justify-between gap-0.5 mt-1 mb-0.5 whitespace-nowrap overflow-hidden">
+                <span class="bg-white text-lhu-blue font-black text-[5.5px] px-1 py-0.2 rounded shadow-2xs whitespace-nowrap flex-shrink-0">
+                  Đại học
                 </span>
-                <span class="bg-white/20 text-white font-bold text-[6.5px] px-1.5 py-0.2 rounded-md border border-white/30 whitespace-nowrap">
-                  Liên thông chính quy
+                <span class="bg-white/20 text-white font-bold text-[5.5px] px-1 py-0.2 rounded border border-white/30 whitespace-nowrap flex-shrink-0">
+                  Liên thông CQ
                 </span>
-                <span class="bg-white/20 text-white font-bold text-[6.5px] px-1.5 py-0.2 rounded-md border border-white/30 whitespace-nowrap">
+                <span class="bg-white/20 text-white font-bold text-[5.5px] px-1 py-0.2 rounded border border-white/30 whitespace-nowrap flex-shrink-0">
                   Liên thông VLVH
                 </span>
-                <span class="bg-white/20 text-white font-bold text-[6.5px] px-1.5 py-0.2 rounded-md border border-white/30 whitespace-nowrap">
+                <span class="bg-white/20 text-white font-bold text-[5.5px] px-1 py-0.2 rounded border border-white/30 whitespace-nowrap flex-shrink-0">
                   Văn bằng 2
                 </span>
-                <span class="bg-lhu-gold text-slate-950 font-black text-[6.5px] px-1.5 py-0.2 rounded-md shadow-2xs border border-white whitespace-nowrap">
+                <span class="bg-lhu-gold text-slate-950 font-black text-[5.5px] px-1 py-0.2 rounded shadow-2xs border border-white whitespace-nowrap flex-shrink-0">
                   Thạc sĩ
                 </span>
-                <span class="bg-gradient-to-r from-amber-400 to-amber-200 text-slate-950 font-black text-[6.5px] px-1.5 py-0.2 rounded-md shadow-2xs border border-white whitespace-nowrap">
+                <span class="bg-gradient-to-r from-amber-400 to-amber-200 text-slate-950 font-black text-[5.5px] px-1 py-0.2 rounded shadow-2xs border border-white whitespace-nowrap flex-shrink-0">
                   Tiến sĩ
                 </span>
               </div>
@@ -710,21 +763,21 @@
             </div>
 
             <!-- Floating Badges phong cách LHU sáng sủa -->
-            <div class="absolute -bottom-2 -left-2 bg-gradient-to-r from-lhu-gold to-amber-400 text-slate-950 font-extrabold text-[8px] px-2 py-0.5 rounded-xl shadow-lhu-gold flex items-center gap-1 z-20 border border-white">
+            <div class="absolute bottom-1 left-1 bg-gradient-to-r from-lhu-gold to-amber-400 text-slate-950 font-extrabold text-[8px] px-2 py-0.5 rounded-xl shadow-lhu-gold flex items-center gap-1 z-20 border border-white">
               <i class="fa-solid fa-wand-magic-sparkles text-lhu-blue"></i>
               <span>VIBE CODING LAB</span>
             </div>
 
-            <div class="absolute -top-2 -right-2 bg-white text-lhu-blue font-black text-[7.5px] px-2 py-0.5 rounded-lg shadow-md border border-slate-100 flex items-center gap-1 z-20">
+            <div class="absolute top-1 right-1 bg-white text-lhu-blue font-black text-[7.5px] px-2 py-0.5 rounded-lg shadow-md border border-slate-100 flex items-center gap-1 z-20">
               <i class="fa-solid fa-robot text-lhu-blue"></i>
               <span>AI - AGENT LAB</span>
             </div>
 
-            <div class="absolute top-7 -left-2 bg-gradient-to-r from-blue-700 to-indigo-800 text-white font-black text-[7px] px-2 py-0.5 rounded-md shadow-sm z-20 flex items-center gap-1 border border-lhu-gold/60">
+            <div class="absolute top-7 left-1 bg-gradient-to-r from-blue-700 to-indigo-800 text-white font-black text-[7px] px-2 py-0.5 rounded-md shadow-sm z-20 flex items-center gap-1 border border-lhu-gold/60">
               <i class="fa-solid fa-earth-americas text-lhu-gold text-[7px]"></i> LIÊN MINH QUỐC TẾ
             </div>
 
-            <div class="absolute top-7 -right-2 bg-[#8C1D40] text-white font-black text-[7px] px-2 py-0.5 rounded-md shadow-md z-20 flex items-center gap-1 border border-amber-300">
+            <div class="absolute top-7 right-1 bg-[#8C1D40] text-white font-black text-[7px] px-2 py-0.5 rounded-md shadow-md z-20 flex items-center gap-1 border border-amber-300">
               <i class="fa-solid fa-graduation-cap text-amber-300 text-[7px]"></i> ĐỐI TÁC ASU (USA)
             </div>
           </div>
@@ -750,7 +803,7 @@
               </div>
             </div>
 
-            <div class="flex flex-wrap items-center justify-between gap-1 text-[7.5px] text-blue-100">
+            <div class="flex items-center justify-between gap-1 text-[7px] text-blue-100 whitespace-nowrap">
               <span class="flex items-center gap-1 text-amber-200">
                 <i class="fa-solid fa-sparkles text-lhu-gold"></i> Đạo đức - Trí tuệ - Sáng tạo
               </span>
@@ -819,10 +872,10 @@
                   <i class="fa-solid fa-layer-group text-lhu-gold"></i> 5 Trụ Cột Năng Lực Cốt Lõi (AI-Era)
                 </span>
                 <div class="flex items-center gap-1">
-                  <span class="text-[5.5px] bg-lhu-goldLight text-lhu-blue font-black px-1.5 py-0.2 rounded border border-lhu-gold">
+                  <span class="text-[5px] bg-lhu-goldLight text-lhu-blue font-black px-1 py-0.2 rounded border border-lhu-gold whitespace-nowrap flex-shrink-0">
                     <i class="fa-solid fa-bolt mr-0.5 text-lhu-gold"></i> FUTURE-PROOF
                   </span>
-                  <span class="text-[5.5px] bg-blue-50 text-lhu-blue font-bold px-1 py-0.2 rounded font-mono border border-blue-200">
+                  <span class="text-[5px] bg-blue-50 text-lhu-blue font-bold px-1 py-0.2 rounded font-mono border border-blue-200 whitespace-nowrap flex-shrink-0">
                     CORE TECH
                   </span>
                 </div>
@@ -839,19 +892,19 @@
                         <span class="w-3 h-3 rounded-full bg-lhu-blue text-white flex items-center justify-center text-[5.5px] font-bold flex-shrink-0">1</span>
                         <span class="truncate">Kỹ nghệ PM tích hợp AI</span>
                       </div>
-                      <span class="text-[5px] bg-lhu-blue text-white font-mono font-bold px-1 py-0.2 rounded">Architecture</span>
+                      <span class="text-[4.5px] bg-lhu-blue text-white font-mono font-bold px-1 py-0.2 rounded whitespace-nowrap flex-shrink-0">Architecture</span>
                     </div>
                     <div class="text-slate-600 text-[6.1px] leading-snug">
                       Làm chủ AI Agent; chuyển trọng tâm sang thiết kế kiến trúc, viết Prompt/Context và thẩm định code do AI tạo.
                     </div>
                     <!-- Badges giá trị Trụ 1 -->
-                    <div class="flex flex-wrap gap-0.5 mt-0.5">
+                    <div class="flex items-center gap-0.5 mt-0.5 whitespace-nowrap">
                       <span class="text-[5px] bg-white text-lhu-blue border border-blue-200 font-bold px-1 py-0.2 rounded">AI Agent Mastery</span>
                       <span class="text-[5px] bg-blue-100 text-lhu-blue font-bold px-1 py-0.2 rounded">Prompt Engineering</span>
                     </div>
                   </div>
                   <!-- Hình ảnh nằm DƯỚI content và chiếm trọn không gian trống -->
-                  <div class="relative flex-1 w-full min-h-[40px] mt-1 rounded-md overflow-hidden border border-blue-200 shadow-2xs group">
+                  <div class="relative flex-1 w-full h-[25px] mt-0.5 rounded-md overflow-hidden border border-blue-200 shadow-2xs group">
                     <img 
                       src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=400&q=80" 
                       alt="AI Software Engineering" 
@@ -872,19 +925,19 @@
                         <span class="w-3 h-3 rounded-full bg-lhu-gold text-slate-950 flex items-center justify-center text-[5.5px] font-black flex-shrink-0">2</span>
                         <span class="truncate">Chuyên sâu AI & Dữ liệu</span>
                       </div>
-                      <span class="text-[5px] bg-amber-700 text-white font-mono font-bold px-1 py-0.2 rounded">LLM & RAG</span>
+                      <span class="text-[4.5px] bg-amber-700 text-white font-mono font-bold px-1 py-0.2 rounded whitespace-nowrap flex-shrink-0">LLM & RAG</span>
                     </div>
                     <div class="text-slate-600 text-[6.1px] leading-snug">
                       Bắt buộc hóa kiến thức về LLM, RAG, Fine-tuning; chú trọng Kỹ nghệ Dữ liệu (Data Engineering) làm nền tảng.
                     </div>
                     <!-- Badges giá trị Trụ 2 -->
-                    <div class="flex flex-wrap gap-0.5 mt-0.5">
+                    <div class="flex items-center gap-0.5 mt-0.5 whitespace-nowrap">
                       <span class="text-[5px] bg-white text-slate-900 border border-lhu-gold/60 font-bold px-1 py-0.2 rounded">Data Engineering</span>
                       <span class="text-[5px] bg-amber-100 text-amber-900 font-bold px-1 py-0.2 rounded border border-amber-200">Fine-Tuning Pro</span>
                     </div>
                   </div>
                   <!-- Hình ảnh nằm DƯỚI content và chiếm trọn không gian trống -->
-                  <div class="relative flex-1 w-full min-h-[40px] mt-1 rounded-md overflow-hidden border border-lhu-gold/50 shadow-2xs group">
+                  <div class="relative flex-1 w-full h-[25px] mt-0.5 rounded-md overflow-hidden border border-lhu-gold/50 shadow-2xs group">
                     <img 
                       src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80" 
                       alt="AI & Data Engineering" 
@@ -905,19 +958,19 @@
                         <span class="w-3 h-3 rounded-full bg-lhu-blue text-white flex items-center justify-center text-[5.5px] font-bold flex-shrink-0">3</span>
                         <span class="truncate">An ninh mạng kỷ nguyên AI</span>
                       </div>
-                      <span class="text-[5px] bg-lhu-blue text-white font-mono font-bold px-1 py-0.2 rounded">DevSecOps</span>
+                      <span class="text-[4.5px] bg-lhu-blue text-white font-mono font-bold px-1 py-0.2 rounded whitespace-nowrap flex-shrink-0">DevSecOps</span>
                     </div>
                     <div class="text-slate-600 text-[6.1px] leading-snug">
                       Tập trung DevSecOps, bảo mật ứng dụng LLM và tự động kiểm thử, rà soát lỗ hổng cho mã nguồn do AI sinh ra.
                     </div>
                     <!-- Badges giá trị Trụ 3 -->
-                    <div class="flex flex-wrap gap-0.5 mt-0.5">
+                    <div class="flex items-center gap-0.5 mt-0.5 whitespace-nowrap">
                       <span class="text-[5px] bg-white text-lhu-blue border border-blue-200 font-bold px-1 py-0.2 rounded">AI Vuln Scan</span>
                       <span class="text-[5px] bg-lhu-goldLight text-lhu-blue border border-lhu-gold/60 font-bold px-1 py-0.2 rounded">Zero Trust</span>
                     </div>
                   </div>
                   <!-- Hình ảnh nằm DƯỚI content và chiếm trọn không gian trống -->
-                  <div class="relative flex-1 w-full min-h-[40px] mt-1 rounded-md overflow-hidden border border-blue-200 shadow-2xs group">
+                  <div class="relative flex-1 w-full h-[25px] mt-0.5 rounded-md overflow-hidden border border-blue-200 shadow-2xs group">
                     <img 
                       src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=400&q=80" 
                       alt="AI Cyber Security" 
@@ -938,19 +991,19 @@
                         <span class="w-3 h-3 rounded-full bg-lhu-blue text-white flex items-center justify-center text-[5.5px] font-bold flex-shrink-0">4</span>
                         <span class="truncate">Kiến trúc Cloud-Native</span>
                       </div>
-                      <span class="text-[5px] bg-lhu-blue text-white font-mono font-bold px-1 py-0.2 rounded">AWS / Cloud</span>
+                      <span class="text-[4.5px] bg-lhu-blue text-white font-mono font-bold px-1 py-0.2 rounded whitespace-nowrap flex-shrink-0">AWS / Cloud</span>
                     </div>
                     <div class="text-slate-600 text-[6.1px] leading-snug">
                       Thực hành trên AWS/Azure/GCP; thiết kế hệ thống Microservices linh hoạt, tối ưu chi phí và mở rộng.
                     </div>
                     <!-- Badges giá trị Trụ 4 -->
-                    <div class="flex flex-wrap gap-0.5 mt-0.5">
+                    <div class="flex items-center gap-0.5 mt-0.5 whitespace-nowrap">
                       <span class="text-[5px] bg-white text-lhu-blue border border-blue-200 font-bold px-1 py-0.2 rounded">Microservices</span>
                       <span class="text-[5px] bg-blue-100 text-lhu-blue font-bold px-1 py-0.2 rounded">Docker & K8s</span>
                     </div>
                   </div>
                   <!-- Hình ảnh nằm DƯỚI content và chiếm trọn không gian trống -->
-                  <div class="relative flex-1 w-full min-h-[40px] mt-1 rounded-md overflow-hidden border border-blue-200 shadow-2xs group">
+                  <div class="relative flex-1 w-full h-[25px] mt-0.5 rounded-md overflow-hidden border border-blue-200 shadow-2xs group">
                     <img 
                       src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=400&q=80" 
                       alt="Cloud Native Microservices" 
@@ -973,13 +1026,13 @@
                       <span class="w-3 h-3 rounded-full bg-lhu-gold text-slate-950 flex items-center justify-center text-[5.5px] font-black flex-shrink-0">5</span>
                       <span>Tư duy Sản phẩm & Kỹ năng mềm:</span>
                     </div>
-                    <span class="text-[5.5px] bg-lhu-blue text-white font-mono font-bold px-1.5 py-0.2 rounded shadow-2xs">Product Mindset</span>
+                    <span class="text-[4.5px] bg-lhu-blue text-white font-mono font-bold px-1 py-0.2 rounded shadow-2xs whitespace-nowrap flex-shrink-0">Product Mindset</span>
                   </div>
                   <div class="text-slate-700 leading-snug">
                     Đẩy mạnh tư duy giải quyết bài toán kinh doanh, trải nghiệm người dùng (UX) và kỹ năng giao tiếp phản biện khi AI đã đảm nhận phần lớn việc viết code thô.
                   </div>
                   <!-- Badges giá trị Trụ 5 -->
-                  <div class="flex flex-wrap items-center gap-1 mt-0.5">
+                  <div class="flex items-center justify-between gap-0.5 mt-0.5 whitespace-nowrap overflow-hidden">
                     <span class="text-[5px] bg-white text-slate-800 border border-slate-300 font-bold px-1 py-0.2 rounded">Problem Solving</span>
                     <span class="text-[5px] bg-white text-slate-800 border border-slate-300 font-bold px-1 py-0.2 rounded">UX/UI Centric</span>
                     <span class="text-[5px] bg-blue-100 text-lhu-blue font-bold px-1 py-0.2 rounded">Critical Thinking</span>
@@ -989,7 +1042,7 @@
                   </div>
                 </div>
                 <!-- Hình ảnh nằm DƯỚI content và chiếm trọn không gian trống -->
-                <div class="relative w-full h-[32px] mt-1 rounded-md overflow-hidden border border-lhu-gold/50 shadow-2xs group">
+                <div class="relative w-full h-[24px] mt-0.5 rounded-md overflow-hidden border border-lhu-gold/50 shadow-2xs group">
                   <img 
                     src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80" 
                     alt="Product Mindset & UX" 
@@ -1117,14 +1170,14 @@
                 </div>
                 <div class="bg-blue-50/50 hover:bg-blue-50 transition-colors p-1.5 rounded-xl border border-blue-200 shadow-2xs">
                   <div class="flex items-center justify-between mb-0.5">
-                    <span class="text-[8px] font-black text-lhu-blue uppercase">Năm 1: Khởi tạo nền tảng & Tư duy số</span>
+                    <span class="text-[7.5px] font-black text-lhu-blue uppercase whitespace-nowrap truncate">Năm 1: Nền tảng & Tư duy số</span>
                     <div class="flex items-center gap-1">
                       <span class="text-[6.5px] bg-lhu-blue text-white font-bold px-1.5 py-0.2 rounded font-mono">C/C++</span>
                       <span class="text-[6.5px] bg-lhu-goldLight text-slate-900 font-bold px-1.5 py-0.2 rounded font-mono border border-lhu-gold/60">Python</span>
                     </div>
                   </div>
                   <!-- Tech Badges Năm 1 -->
-                  <div class="flex flex-wrap gap-1 mb-1">
+                  <div class="flex items-center gap-0.5 mb-1 whitespace-nowrap overflow-hidden">
                     <span class="bg-white border border-slate-200 text-slate-700 text-[6px] font-mono px-1 py-0.2 rounded">DSA (Giải thuật)</span>
                     <span class="bg-white border border-slate-200 text-slate-700 text-[6px] font-mono px-1 py-0.2 rounded">Git/GitHub Flow</span>
                     <span class="bg-blue-50 border border-blue-200 text-lhu-blue text-[6px] font-mono font-bold px-1 py-0.2 rounded">HTML/CSS/JS</span>
@@ -1149,14 +1202,14 @@
                 </div>
                 <div class="bg-blue-50/60 hover:bg-blue-50 transition-colors p-1.5 rounded-xl border border-blue-200/90 shadow-2xs">
                   <div class="flex items-center justify-between mb-0.5">
-                    <span class="text-[8px] font-black text-lhu-blue uppercase">Năm 2: Vibe Coding & Cơ sở ngành</span>
+                    <span class="text-[7.5px] font-black text-lhu-blue uppercase whitespace-nowrap truncate">Năm 2: Vibe Coding & Cơ sở ngành</span>
                     <div class="flex items-center gap-1">
-                      <span class="text-[6.5px] bg-lhu-gold text-slate-950 font-bold px-1.5 py-0.2 rounded font-mono">Vibe Coding</span>
-                      <span class="text-[6.5px] bg-blue-100 text-lhu-blue font-bold px-1.5 py-0.2 rounded font-mono border border-blue-200">Agile - Scrum</span>
+                      <span class="text-[5px] bg-lhu-gold text-slate-950 font-bold px-1 py-0.2 rounded font-mono whitespace-nowrap flex-shrink-0">Vibe Coding</span>
+                      <span class="text-[5px] bg-blue-100 text-lhu-blue font-bold px-1 py-0.2 rounded font-mono border border-blue-200 whitespace-nowrap flex-shrink-0">Agile - Scrum</span>
                     </div>
                   </div>
                   <!-- Tech Badges Năm 2 -->
-                  <div class="flex flex-wrap gap-1 mb-1">
+                  <div class="flex items-center gap-0.5 mb-1 whitespace-nowrap overflow-hidden">
                     <span class="bg-white border border-blue-200 text-lhu-blue text-[6px] font-mono px-1 py-0.2 rounded">Java / C# OOP</span>
                     <span class="bg-white border border-blue-200 text-lhu-blue text-[6px] font-mono px-1 py-0.2 rounded">SQL & NoSQL</span>
                     <span class="bg-white border border-blue-200 text-lhu-blue text-[6px] font-mono px-1 py-0.2 rounded">RESTful APIs</span>
@@ -1182,14 +1235,14 @@
                 </div>
                 <div class="bg-lhu-goldLight hover:bg-amber-50 transition-colors p-1.5 rounded-xl border border-lhu-gold/70 shadow-2xs">
                   <div class="flex items-center justify-between mb-0.5">
-                    <span class="text-[8px] font-black text-slate-900 uppercase">Năm 3: System Design & Giải pháp AI/Cloud</span>
+                    <span class="text-[7.5px] font-black text-slate-900 uppercase whitespace-nowrap truncate">Năm 3: System Design & AI/Cloud</span>
                     <div class="flex items-center gap-1">
-                      <span class="text-[6.5px] bg-lhu-blue text-white font-black px-1.5 py-0.2 rounded font-mono">System Design</span>
-                      <span class="text-[6.5px] bg-white text-slate-900 font-bold px-1.5 py-0.2 rounded font-mono border border-lhu-gold/60">AWS Cloud</span>
+                      <span class="text-[5px] bg-lhu-blue text-white font-black px-1 py-0.2 rounded font-mono whitespace-nowrap flex-shrink-0">System Design</span>
+                      <span class="text-[5px] bg-white text-slate-900 font-bold px-1 py-0.2 rounded font-mono border border-lhu-gold/60 whitespace-nowrap flex-shrink-0">AWS Cloud</span>
                     </div>
                   </div>
                   <!-- Tech Badges Năm 3 -->
-                  <div class="flex flex-wrap gap-1 mb-1">
+                  <div class="flex items-center gap-0.5 mb-1 whitespace-nowrap overflow-hidden">
                     <span class="bg-white border border-lhu-gold/50 text-slate-800 text-[6px] font-mono px-1 py-0.2 rounded">Microservices</span>
                     <span class="bg-white border border-lhu-gold/50 text-slate-800 text-[6px] font-mono px-1 py-0.2 rounded">Docker / K8s</span>
                     <span class="bg-white border border-lhu-gold/50 text-slate-800 text-[6px] font-mono px-1 py-0.2 rounded">LLM Integration</span>
@@ -1222,7 +1275,7 @@
                     </div>
                   </div>
                   <!-- Tech Badges Năm 4 -->
-                  <div class="flex flex-wrap gap-1 mb-1">
+                  <div class="flex items-center gap-0.5 mb-1 whitespace-nowrap overflow-hidden">
                     <span class="bg-white border border-blue-200 text-lhu-blue text-[6px] font-mono px-1 py-0.2 rounded">Enterprise Design</span>
                     <span class="bg-white border border-blue-200 text-lhu-blue text-[6px] font-mono px-1 py-0.2 rounded">Agile at Scale</span>
                     <span class="bg-lhu-goldLight text-amber-900 border border-lhu-gold text-[6px] font-mono px-1 py-0.2 rounded">Global IT English</span>
@@ -1249,9 +1302,7 @@
                   <i class="fa-solid fa-trophy text-lhu-gold"></i>
                   <span>HỆ THỐNG ĐẤU TRƯỜNG & SÂN CHƠI CÔNG NGHỆ</span>
                 </div>
-                <span class="bg-white/20 text-lhu-gold text-[6.5px] font-mono px-1.5 py-0.5 rounded border border-lhu-gold/40 font-bold">
-                  THỬ LỬA THƯỜNG NIÊN
-                </span>
+                <span class="bg-white/20 text-lhu-gold text-[5px] font-mono px-1 py-0.2 rounded border border-lhu-gold/40 font-bold whitespace-nowrap flex-shrink-0">THỬ LỬA THƯỜNG NIÊN</span>
               </div>
               <p class="text-[6.8px] text-blue-100 leading-tight mb-1">
                 Cuối mỗi năm, 100% sinh viên được dẫn dắt cọ sát trực tiếp tại các đấu trường chuyên nghiệp cấp Tỉnh, Quốc gia và Quốc tế để tôi luyện bản lĩnh:
@@ -1265,21 +1316,21 @@
                   </span>
                   <span class="text-[5.5px] text-amber-200 font-mono">LHU INCENTIVES</span>
                 </div>
-                <div class="flex flex-wrap gap-1">
-                  <span class="bg-gradient-to-r from-lhu-gold to-amber-400 text-slate-950 font-black text-[6px] px-1.5 py-0.2 rounded-md shadow-2xs flex items-center gap-0.5 border border-white">
-                    <i class="fa-solid fa-medal text-[5.5px]"></i> ĐẶC CÁCH TỐT NGHIỆP
+                <div class="flex items-center justify-between gap-0.5 whitespace-nowrap overflow-hidden">
+                  <span class="bg-gradient-to-r from-lhu-gold to-amber-400 text-slate-950 font-black text-[5px] px-1 py-0.2 rounded shadow-2xs flex items-center gap-0.5 border border-white whitespace-nowrap flex-shrink-0">
+                    <i class="fa-solid fa-medal text-[4.5px]"></i> ĐẶC CÁCH TN
                   </span>
-                  <span class="bg-blue-900/90 text-white font-extrabold text-[6px] px-1.5 py-0.2 rounded-md shadow-2xs flex items-center gap-0.5 border border-lhu-gold/40">
-                    <i class="fa-solid fa-star text-[5.5px] text-lhu-gold"></i> ĐẶC CÁCH & MIỄN MÔN HỌC
+                  <span class="bg-blue-900/90 text-white font-extrabold text-[5px] px-1 py-0.2 rounded shadow-2xs flex items-center gap-0.5 border border-lhu-gold/40 whitespace-nowrap flex-shrink-0">
+                    <i class="fa-solid fa-star text-[4.5px] text-lhu-gold"></i> MIỄN MÔN HỌC
                   </span>
-                  <span class="bg-white/15 text-white border border-white/20 font-bold text-[6px] px-1.5 py-0.2 rounded-md flex items-center gap-0.5">
-                    <i class="fa-solid fa-briefcase text-[5.5px] text-lhu-gold"></i> TRẢI NGHIỆM DỰ ÁN THỰC
+                  <span class="bg-white/15 text-white border border-white/20 font-bold text-[5px] px-1 py-0.2 rounded flex items-center gap-0.5 whitespace-nowrap flex-shrink-0">
+                    <i class="fa-solid fa-briefcase text-[4.5px] text-lhu-gold"></i> DỰ ÁN THỰC
                   </span>
-                  <span class="bg-white/15 text-white border border-white/20 font-bold text-[6px] px-1.5 py-0.2 rounded-md flex items-center gap-0.5">
-                    <i class="fa-solid fa-users-viewfinder text-[5.5px] text-lhu-gold"></i> KẾT NỐI BẠN BÈ & MENTOR
+                  <span class="bg-white/15 text-white border border-white/20 font-bold text-[5px] px-1 py-0.2 rounded flex items-center gap-0.5 whitespace-nowrap flex-shrink-0">
+                    <i class="fa-solid fa-users text-[4.5px] text-lhu-gold"></i> MENTOR
                   </span>
-                  <span class="bg-lhu-gold/30 text-amber-200 border border-lhu-gold/40 font-bold text-[6px] px-1.5 py-0.2 rounded-md flex items-center gap-0.5">
-                    <i class="fa-solid fa-sack-dollar text-[5.5px] text-lhu-gold"></i> TIỀN THƯỞNG DOANH NGHIỆP
+                  <span class="bg-lhu-gold/30 text-amber-200 border border-lhu-gold/40 font-bold text-[5px] px-1 py-0.2 rounded flex items-center gap-0.5 whitespace-nowrap flex-shrink-0">
+                    <i class="fa-solid fa-sack-dollar text-[4.5px] text-lhu-gold"></i> TIỀN THƯỞNG
                   </span>
                 </div>
               </div>
@@ -1352,9 +1403,7 @@
                     </span>
                     <span class="text-blue-100 text-[6.5px]">Tích lũy kinh nghiệm, chứng nhận & profile GitHub chất lượng cao</span>
                   </div>
-                  <span class="bg-lhu-gold text-slate-950 text-[6.5px] font-black px-2 py-0.5 rounded shadow-sm border border-white">
-                    CHINH PHỤC GIẢI THƯỞNG
-                  </span>
+                  <span class="bg-lhu-gold text-slate-950 text-[5px] font-black px-1.5 py-0.2 rounded shadow-sm border border-white whitespace-nowrap flex-shrink-0">CHINH PHỤC GIẢI THƯỞNG</span>
                 </div>
               </div>
             </div>
@@ -1393,7 +1442,7 @@
             </div>
 
             <!-- LAYOUT LƯỚI 2 CỘT 2 DÒNG: 4 KHUNG ẢNH ĐA TẦNG ĐẶC QUYỀN SÁNG SỦA (CHIẾM ~1/2 TRANG) -->
-            <div class="my-1 grid grid-cols-2 gap-1.5 h-[168px]">
+            <div class="my-1 grid grid-cols-2 gap-1.5 h-[100px]">
               
               <!-- Ô 1: Cơ sở vật chất & Innovation Lab -->
               <div class="organic-layer-base relative rounded-xl overflow-hidden border border-blue-200 shadow-2xs group flex flex-col">
@@ -1502,9 +1551,7 @@
                     <i class="fa-solid fa-hexagon-nodes text-lhu-gold"></i>
                     <span>CLB CHUYÊN NGÀNH VÀ LIÊN KẾT ĐÀO TẠO</span>
                   </div>
-                  <span class="bg-gradient-to-r from-lhu-gold to-amber-400 text-slate-950 text-[6px] font-mono px-1.5 py-0.2 rounded font-black tracking-tight border border-white">
-                    11 CLB MATRIX
-                  </span>
+                  <span class="bg-gradient-to-r from-lhu-gold to-amber-400 text-slate-950 text-[5px] font-mono px-1 py-0.2 rounded font-black tracking-tight border border-white whitespace-nowrap flex-shrink-0">11 CLB MATRIX</span>
                 </div>
                 <p class="text-[6.5px] text-blue-100 leading-tight">
                   Tổ hợp 5 CLB Công nghệ cốt lõi được bao bọc bởi 6 CLB Văn - Thể - Mỹ, phát triển toàn diện Thân - Tâm - Trí:
